@@ -6,6 +6,267 @@
     <title>プロフェッショナル動画制作サービス | あなたのビジョンを映像で実現</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .video-gallery {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .video-item {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            padding: 15px;
+        }
+
+        .video-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .video-item h3 {
+            padding: 15px;
+            margin: 0;
+            font-size: 1.2rem;
+            color: #333;
+            text-align: center;
+            background: #f8f9fa;
+        }
+
+        .video-player {
+            width: 100%;
+            max-height: 200px;
+            object-fit: contain;
+            display: block;
+            background: #000;
+        }
+
+        .benefit-item .video-player {
+            width: 100%;
+            max-height: 180px;
+            object-fit: contain;
+            display: block;
+            background: #000;
+            margin: 10px 0;
+            border-radius: 8px;
+        }
+
+        @media (max-width: 768px) {
+            .video-grid {
+                grid-template-columns: 1fr;
+            }
+            .video-player {
+                max-height: 180px;
+            }
+            .benefit-item .video-player {
+                max-height: 160px;
+            }
+        }
+
+        .instagram-stories {
+            margin: 40px 0;
+            padding: 20px;
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stories-slider {
+            width: 100%;
+            overflow-x: auto;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            padding: 20px 0;
+            cursor: grab;
+        }
+
+        .stories-slider:active {
+            cursor: grabbing;
+        }
+
+        .stories-slider::-webkit-scrollbar {
+            display: none;
+        }
+
+        .stories-track {
+            display: flex;
+            gap: 30px;
+            padding: 0 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .story-item {
+            flex: 0 0 auto;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            width: 200px;
+        }
+
+        .story-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .story-rectangle {
+            width: 200px;
+            height: 320px;
+            border-radius: 10px;
+            padding: 3px;
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .story-thumbnail {
+            width: 100%;
+            height: 100%;
+            border-radius: 8px;
+            object-fit: cover;
+            border: 3px solid white;
+            background: #fff;
+        }
+
+        .story-title {
+            font-size: 0.9rem;
+            margin: 8px 0 0;
+            color: #333;
+            font-weight: 500;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        @media (max-width: 768px) {
+            .story-item {
+                width: 160px;
+            }
+            
+            .story-rectangle {
+                width: 160px;
+                height: 256px;
+            }
+            
+            .story-title {
+                font-size: 0.8rem;
+            }
+        }
+
+        .main-video {
+            width: 100%;
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+            position: relative;
+        }
+        
+        .main-video-player {
+            width: 100%;
+            max-height: 600px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            background: #000;
+            object-fit: contain;
+        }
+        
+        @media (max-width: 768px) {
+            .main-video {
+                margin: 20px auto;
+                padding: 0 10px;
+            }
+            
+            .main-video-player {
+                max-height: 400px;
+            }
+        }
+
+        .case-video {
+            width: 100%;
+            margin: 20px 0;
+        }
+        
+        .case-video .video-player {
+            width: 100%;
+            max-height: 400px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            background: #000;
+            object-fit: contain;
+        }
+        
+        @media (max-width: 768px) {
+            .case-video .video-player {
+                max-height: 300px;
+            }
+        }
+
+        /* モーダルウィンドウのスタイル */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.9);
+            overflow: auto;
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            max-width: 90%;
+            max-height: 90vh;
+            object-fit: contain;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .modal-close {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            color: #fff;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        @media (max-width: 768px) {
+            .story-item {
+                width: 160px;
+            }
+            
+            .story-rectangle {
+                width: 160px;
+                height: 256px;
+            }
+            
+            .story-title {
+                font-size: 0.8rem;
+            }
+
+            .modal-content {
+                max-width: 95%;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- ヘッダーセクション -->
@@ -15,19 +276,17 @@
                 <h1>あなたの想いを<span class="highlight">映像</span>で伝える</h1>
                 <h2>クオリティとスピードで選ばれる<br>プロフェッショナル動画クリエイター</h2>
                 
-                <!-- メインポートフォリオ動画プレースホルダー -->
-                <div class="video-container main-video">
-                    <!-- ここにメイン動画を挿入 -->
-                    <div class="video-placeholder">
-                        <i class="fas fa-play-circle"></i>
-                        <p>メインポートフォリオ動画</p>
-                    </div>
+                <!-- メインポートフォリオ動画 -->
+                <div class="main-video">
+                    <video controls class="main-video-player" playsinline>
+                        <source src="Vimeo 2/mein.mp4" type="video/mp4">
+                        お使いのブラウザは動画の再生に対応していません。
+                    </video>
                 </div>
                 
                 <p class="hero-description">月間10社以上が選ぶ動画制作サービス<br>あなたのビジネスを成長させる映像制作のプロフェッショナル</p>
                 
                 <a href="#contact" class="cta-button">無料相談を予約する <i class="fas fa-arrow-right"></i></a>
-                <p class="limited-time">＊ 今月末まで初回限定10%オフキャンペーン実施中！</p>
             </div>
         </div>
     </header>
@@ -41,66 +300,61 @@
                 <div class="benefit-item">
                     <div class="benefit-number">01</div>
                     <h3>集客力が飛躍的に向上</h3>
-                    <!-- 小さな動画プレースホルダー -->
-                    <div class="video-container small-video">
-                        <div class="video-placeholder">
-                            <i class="fas fa-play-circle"></i>
-                            <p>集客事例動画</p>
-                        </div>
-                    </div>
+                    <video controls class="video-player">
+                        <source src="Vimeo 2/emiluca op.mp4" type="video/mp4">
+                        お使いのブラウザは動画の再生に対応していません。
+                    </video>
                     <p>動画コンテンツは通常のテキストや画像と比較して、最大300%の集客効果があります。あなたのサービスを魅力的に伝え、新規顧客の獲得につながります。</p>
                 </div>
                 
                 <div class="benefit-item">
                     <div class="benefit-number">02</div>
                     <h3>ブランド認知度の向上</h3>
-                    <!-- 小さな動画プレースホルダー -->
-                    <div class="video-container small-video">
-                        <div class="video-placeholder">
-                            <i class="fas fa-play-circle"></i>
-                            <p>ブランディング動画</p>
-                        </div>
-                    </div>
+                    <video controls class="video-player">
+                        <source src="Vimeo 2/zyuku op.mp4" type="video/mp4">
+                        お使いのブラウザは動画の再生に対応していません。
+                    </video>
                     <p>印象的な動画は視聴者の記憶に残り、ブランド認知度を高めます。一貫したビジュアルスタイルと強いメッセージで、競合他社との差別化を実現します。</p>
                 </div>
                 
                 <div class="benefit-item">
                     <div class="benefit-number">03</div>
                     <h3>コンバージョン率の改善</h3>
-                    <!-- 小さな動画プレースホルダー -->
-                    <div class="video-container small-video">
-                        <div class="video-placeholder">
-                            <i class="fas fa-play-circle"></i>
-                            <p>成果事例動画</p>
-                        </div>
-                    </div>
+                    <video controls class="video-player">
+                        <source src="Vimeo 2/kamigataop.mp4" type="video/mp4">
+                        お使いのブラウザは動画の再生に対応していません。
+                    </video>
                     <p>ランディングページに動画を設置することで、コンバージョン率が平均80%向上します。製品やサービスの魅力を視覚的に伝え、購買意欲を高めます。</p>
                 </div>
                 
                 <div class="benefit-item">
                     <div class="benefit-number">04</div>
                     <h3>SNSでの拡散力</h3>
-                    <!-- 小さな動画プレースホルダー -->
-                    <div class="video-container small-video">
-                        <div class="video-placeholder">
-                            <i class="fas fa-play-circle"></i>
-                            <p>SNS拡散事例動画</p>
-                        </div>
-                    </div>
+                    <video controls class="video-player">
+                        <source src="Vimeo 2/hirokoop.mp4" type="video/mp4">
+                        お使いのブラウザは動画の再生に対応していません。
+                    </video>
                     <p>動画コンテンツはSNSで1200%以上シェアされやすく、オーガニックリーチを大幅に拡大します。魅力的な動画は自然と拡散され、新たな顧客層にリーチします。</p>
                 </div>
                 
                 <div class="benefit-item">
                     <div class="benefit-number">05</div>
                     <h3>長期的な資産価値</h3>
-                    <!-- 小さな動画プレースホルダー -->
-                    <div class="video-container small-video">
-                        <div class="video-placeholder">
-                            <i class="fas fa-play-circle"></i>
-                            <p>長期活用事例動画</p>
-                        </div>
-                    </div>
+                    <video controls class="video-player">
+                        <source src="Vimeo 2/zyuku2.mp4" type="video/mp4">
+                        お使いのブラウザは動画の再生に対応していません。
+                    </video>
                     <p>高品質な動画コンテンツは長期間にわたって活用でき、継続的なマーケティング資産となります。一度の制作で複数のチャネルで活用できるコスト効率の良い投資です。</p>
+                </div>
+
+                <div class="benefit-item">
+                    <div class="benefit-number">06</div>
+                    <h3>しっかりサポート</h3>
+                    <video controls class="video-player">
+                        <source src="Vimeo 2/hirokoomake.mp4" type="video/mp4">
+                        お使いのブラウザは動画の再生に対応していません。
+                    </video>
+                    <p>企画から撮影、編集、LINE構築まで一貫したサポート体制で、あなたのビジネスの成長を全面的にバックアップします。補助金関係のサポートも含めた総合的なサービスを提供します。</p>
                 </div>
             </div>
             
@@ -135,9 +389,12 @@
                         </ul>
                     </div>
                     
-                    <!-- 事例動画プレースホルダー -->
+                    <!-- CASE 01の動画 -->
                     <div class="video-container case-video">
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <video controls class="video-player">
+                            <source src="Vimeo 2/emiruca.mp4" type="video/mp4">
+                            お使いのブラウザは動画の再生に対応していません。
+                        </video>
                     </div>
                 </div>
             </div>
@@ -167,12 +424,12 @@
                         </div>
                     </div>
                     
-                    <!-- 事例動画プレースホルダー -->
+                    <!-- CASE 02の動画 -->
                     <div class="video-container case-video">
-                        <div class="video-placeholder">
-                            <i class="fas fa-play-circle"></i>
-                            <p>タカタ先生の指導動画</p>
-                        </div>
+                        <video controls class="video-player">
+                            <source src="Vimeo 2/roiyaru.mp4" type="video/mp4">
+                            お使いのブラウザは動画の再生に対応していません。
+                        </video>
                     </div>
                 </div>
             </div>
@@ -198,12 +455,12 @@
                         </ul>
                     </div>
                     
-                    <!-- 事例動画プレースホルダー -->
+                    <!-- CASE 03の動画 -->
                     <div class="video-container case-video">
-                        <div class="video-placeholder">
-                            <i class="fas fa-play-circle"></i>
-                            <p>ビフォーアフター施術動画</p>
-                        </div>
+                        <video controls class="video-player">
+                            <source src="Vimeo 2/kaminoke.mp4" type="video/mp4">
+                            お使いのブラウザは動画の再生に対応していません。
+                        </video>
                     </div>
                 </div>
             </div>
@@ -230,12 +487,12 @@
                         </ul>
                     </div>
                     
-                    <!-- 事例動画プレースホルダー -->
+                    <!-- CASE 04の動画 -->
                     <div class="video-container case-video">
-                        <div class="video-placeholder">
-                            <i class="fas fa-play-circle"></i>
-                            <p>サロン紹介動画</p>
-                        </div>
+                        <video controls class="video-player">
+                            <source src="Vimeo 2/saron.mp4" type="video/mp4">
+                            お使いのブラウザは動画の再生に対応していません。
+                        </video>
                     </div>
                 </div>
             </div>
@@ -257,7 +514,6 @@
                     <i class="fas fa-film service-icon"></i>
                     <h3>企業プロモーション動画</h3>
                     <p>会社の強みや理念を伝え、ブランドイメージを確立するプロモーション動画を制作します。インパクトのある映像で視聴者の記憶に残る内容を提供します。</p>
-                    <div class="offer-badge">今月限定<br>10%OFF</div>
                 </div>
                 
                 <div class="service-item">
@@ -279,15 +535,9 @@
                 </div>
             </div>
             
-            <!-- 制作プロセス動画プレースホルダー -->
+            <!-- 制作プロセス -->
             <div class="process-section">
                 <h3>制作プロセス</h3>
-                <div class="video-container process-video">
-                    <div class="video-placeholder">
-                        <i class="fas fa-play-circle"></i>
-                        <p>制作プロセス解説動画</p>
-                    </div>
-                </div>
                 
                 <div class="process-steps">
                     <div class="process-step">
@@ -375,55 +625,139 @@
     <!-- お客様の声セクション -->
     <section class="testimonials">
         <div class="container">
-            <h2 class="section-title">お客様の<span class="highlight">声</span></h2>
+            <h2 class="section-title">お客様の声</h2>
             
-            <div class="testimonials-grid">
-                <div class="testimonial-item">
-                    <div class="testimonial-content">
-                        <p class="testimonial-text">「プロモーション動画の制作をお願いしましたが、期待以上の仕上がりでした。特に当社の理念を映像で表現する技術に感銘を受けました。公開後、問い合わせ数が大幅に増加し、具体的な成果につながっています。」</p>
-                        <div class="testimonial-author">
-                            <p class="author-name">鈴木 健一</p>
-                            <p class="author-position">株式会社テックイノベーション 代表取締役</p>
+            <!-- Instagramストーリーズ風スライダー -->
+            <div class="instagram-stories">
+                <div class="stories-slider">
+                    <div class="stories-track">
+                        <!-- ストーリーズアイテム -->
+                        <div class="story-item" onclick="openModal('./images/4.png')">
+                            <div class="story-rectangle">
+                                <img src="./images/4.png" alt="お客様の声 1" class="story-thumbnail">
+                            </div>
+                            <p class="story-title">お客様の声 1</p>
                         </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial-item">
-                    <div class="testimonial-content">
-                        <p class="testimonial-text">「短納期にも関わらず、高品質な動画を制作していただきました。特に商品の魅力を引き出す撮影技術と編集センスは素晴らしく、SNSでの反応も非常に良好です。今後も継続してお願いしたいと思います。」</p>
-                        <div class="testimonial-author">
-                            <p class="author-name">佐藤 美咲</p>
-                            <p class="author-position">ナチュラルビューティー株式会社 マーケティング部長</p>
+
+                        <div class="story-item" onclick="openModal('./images/5.png')">
+                            <div class="story-rectangle">
+                                <img src="./images/5.png" alt="お客様の声 2" class="story-thumbnail">
+                            </div>
+                            <p class="story-title">お客様の声 2</p>
                         </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial-item">
-                    <div class="testimonial-content">
-                        <p class="testimonial-text">「当社の複雑な商品内容を、わかりやすく魅力的に伝える動画を制作していただきました。専門知識がなくても理解できる構成と、視覚的に印象に残る映像表現で、販売促進に大きく貢献しています。」</p>
-                        <div class="testimonial-author">
-                            <p class="author-name">田中 誠</p>
-                            <p class="author-position">グローバルフード株式会社 営業部長</p>
+
+                        <div class="story-item" onclick="openModal('./images/6.png')">
+                            <div class="story-rectangle">
+                                <img src="./images/6.png" alt="お客様の声 3" class="story-thumbnail">
+                            </div>
+                            <p class="story-title">お客様の声 3</p>
+                        </div>
+
+                        <div class="story-item" onclick="openModal('./images/7.png')">
+                            <div class="story-rectangle">
+                                <img src="./images/7.png" alt="お客様の声 4" class="story-thumbnail">
+                            </div>
+                            <p class="story-title">お客様の声 4</p>
+                        </div>
+
+                        <div class="story-item" onclick="openModal('./images/8.png')">
+                            <div class="story-rectangle">
+                                <img src="./images/8.png" alt="お客様の声 5" class="story-thumbnail">
+                            </div>
+                            <p class="story-title">お客様の声 5</p>
                         </div>
                     </div>
                 </div>
             </div>
-            
-            <!-- ビフォーアフター動画プレースホルダー -->
-            <div class="before-after-section">
-                <h3>ビフォーアフター事例</h3>
-                <div class="video-container before-after-video">
-                    <div class="video-placeholder">
-                        <i class="fas fa-play-circle"></i>
-                        <p>ビフォーアフター事例動画</p>
-                    </div>
-                </div>
+
+            <!-- モーダルウィンドウ -->
+            <div id="imageModal" class="modal">
+                <span class="modal-close" onclick="closeModal()">&times;</span>
+                <img id="modalImage" class="modal-content" src="" alt="拡大画像">
             </div>
-            
-            <div class="testimonials-cta">
-                <p class="cta-lead">あなたも満足の声を寄せるお客様の一人になりませんか？</p>
-                <a href="#contact" class="cta-button">無料相談に申し込む <i class="fas fa-arrow-right"></i></a>
-            </div>
+
+            <script>
+                // スライダーの機能
+                document.addEventListener('DOMContentLoaded', function() {
+                    const slider = document.querySelector('.stories-slider');
+                    let isDown = false;
+                    let startX;
+                    let scrollLeft;
+
+                    slider.addEventListener('mousedown', (e) => {
+                        isDown = true;
+                        slider.classList.add('active');
+                        startX = e.pageX - slider.offsetLeft;
+                        scrollLeft = slider.scrollLeft;
+                    });
+
+                    slider.addEventListener('mouseleave', () => {
+                        isDown = false;
+                        slider.classList.remove('active');
+                    });
+
+                    slider.addEventListener('mouseup', () => {
+                        isDown = false;
+                        slider.classList.remove('active');
+                    });
+
+                    slider.addEventListener('mousemove', (e) => {
+                        if (!isDown) return;
+                        e.preventDefault();
+                        const x = e.pageX - slider.offsetLeft;
+                        const walk = (x - startX) * 2;
+                        slider.scrollLeft = scrollLeft - walk;
+                    });
+
+                    // タッチデバイス対応
+                    slider.addEventListener('touchstart', (e) => {
+                        isDown = true;
+                        slider.classList.add('active');
+                        startX = e.touches[0].pageX - slider.offsetLeft;
+                        scrollLeft = slider.scrollLeft;
+                    });
+
+                    slider.addEventListener('touchend', () => {
+                        isDown = false;
+                        slider.classList.remove('active');
+                    });
+
+                    slider.addEventListener('touchmove', (e) => {
+                        if (!isDown) return;
+                        e.preventDefault();
+                        const x = e.touches[0].pageX - slider.offsetLeft;
+                        const walk = (x - startX) * 2;
+                        slider.scrollLeft = scrollLeft - walk;
+                    });
+                });
+
+                // モーダルウィンドウの機能
+                function openModal(imageSrc) {
+                    const modal = document.getElementById('imageModal');
+                    const modalImg = document.getElementById('modalImage');
+                    modal.style.display = "block";
+                    modalImg.src = imageSrc;
+
+                    // スクロール防止
+                    document.body.style.overflow = 'hidden';
+                }
+
+                function closeModal() {
+                    const modal = document.getElementById('imageModal');
+                    modal.style.display = "none";
+                    
+                    // スクロール再開
+                    document.body.style.overflow = 'auto';
+                }
+
+                // モーダル外クリックで閉じる
+                window.onclick = function(event) {
+                    const modal = document.getElementById('imageModal');
+                    if (event.target == modal) {
+                        closeModal();
+                    }
+                }
+            </script>
         </div>
     </section>
 
@@ -517,8 +851,6 @@
                     <i class="fab fa-line"></i> 公式LINEで無料相談する
                 </a>
             </div>
-            
-            <p class="limited-offer">＊ 期間限定：今月中のお申し込みで初回制作10%オフ</p>
         </div>
     </section>
 
