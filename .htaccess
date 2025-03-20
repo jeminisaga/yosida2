@@ -1,0 +1,25 @@
+# MIMEタイプの設定
+<IfModule mod_mime.c>
+    AddType video/mp4 .mp4 .m4v
+    AddType video/webm .webm
+    AddType video/ogg .ogv
+    AddType image/jpeg .jpg .jpeg
+    AddType image/png .png
+    AddType image/gif .gif
+</IfModule>
+
+# CORS設定
+<IfModule mod_headers.c>
+    <FilesMatch "\.(jpg|jpeg|png|gif|mp4|webm|ogv)$">
+        Header set Access-Control-Allow-Origin "*"
+        Header set Access-Control-Allow-Methods "GET, HEAD, OPTIONS"
+        Header set Access-Control-Allow-Headers "Origin, X-Requested-With, Content-Type, Accept, Range"
+    </FilesMatch>
+</IfModule>
+
+# バイトレンジリクエストの設定
+<IfModule mod_headers.c>
+    <FilesMatch "\.(mp4|webm|ogv)$">
+        Header set Accept-Ranges "bytes"
+    </FilesMatch>
+</IfModule> 
