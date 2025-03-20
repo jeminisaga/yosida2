@@ -266,6 +266,63 @@
                 max-width: 95%;
             }
         }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .benefit-item {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .benefit-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .benefit-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #0056b3;
+            margin-bottom: 15px;
+        }
+
+        .benefit-item h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .benefit-item p {
+            color: #666;
+            line-height: 1.6;
+            margin-top: 15px;
+        }
+
+        @media (max-width: 768px) {
+            .benefits-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .benefit-item {
+                padding: 20px;
+            }
+
+            .benefit-number {
+                font-size: 1.8rem;
+            }
+
+            .benefit-item h3 {
+                font-size: 1.2rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -276,10 +333,10 @@
                 <h1>あなたの想いを<span class="highlight">映像</span>で伝える</h1>
                 <h2>クオリティとスピードで選ばれる<br>プロフェッショナル動画クリエイター</h2>
                 
-                <!-- メインポートフォリオ動画 -->
+                <!-- メインビデオセクション -->
                 <div class="main-video">
                     <video controls class="main-video-player" playsinline>
-                        <source src="./Vimeo 2/mein.mp4" type="video/mp4">
+                        <source src="./vimeo2/mein.mp4" type="video/mp4">
                         お使いのブラウザは動画の再生に対応していません。
                     </video>
                 </div>
@@ -291,57 +348,57 @@
         </div>
     </header>
 
-    <!-- メリットセクション -->
+    <!-- 動画制作でビジネスが変わる6つの理由 -->
     <section class="benefits">
         <div class="container">
-            <h2 class="section-title">動画制作で<span class="highlight">ビジネスが変わる</span>5つの理由</h2>
+            <h2 class="section-title">動画制作で<span class="highlight">ビジネスが変わる</span>6つの理由</h2>
             
             <div class="benefits-grid">
                 <div class="benefit-item">
                     <div class="benefit-number">01</div>
                     <h3>集客力が飛躍的に向上</h3>
                     <video controls class="video-player">
-                        <source src="./Vimeo 2/emiluca op.mp4" type="video/mp4">
+                        <source src="./vimeo2/1.mp4" type="video/mp4">
                         お使いのブラウザは動画の再生に対応していません。
                     </video>
                     <p>動画コンテンツは通常のテキストや画像と比較して、最大300%の集客効果があります。あなたのサービスを魅力的に伝え、新規顧客の獲得につながります。</p>
                 </div>
-                
+
                 <div class="benefit-item">
                     <div class="benefit-number">02</div>
                     <h3>ブランド認知度の向上</h3>
                     <video controls class="video-player">
-                        <source src="./Vimeo 2/zyuku op.mp4" type="video/mp4">
+                        <source src="./vimeo2/2.mp4" type="video/mp4">
                         お使いのブラウザは動画の再生に対応していません。
                     </video>
                     <p>印象的な動画は視聴者の記憶に残り、ブランド認知度を高めます。一貫したビジュアルスタイルと強いメッセージで、競合他社との差別化を実現します。</p>
                 </div>
-                
+
                 <div class="benefit-item">
                     <div class="benefit-number">03</div>
                     <h3>コンバージョン率の改善</h3>
                     <video controls class="video-player">
-                        <source src="./Vimeo 2/kamigataop.mp4" type="video/mp4">
+                        <source src="./vimeo2/3.mp4" type="video/mp4">
                         お使いのブラウザは動画の再生に対応していません。
                     </video>
                     <p>ランディングページに動画を設置することで、コンバージョン率が平均80%向上します。製品やサービスの魅力を視覚的に伝え、購買意欲を高めます。</p>
                 </div>
-                
+
                 <div class="benefit-item">
                     <div class="benefit-number">04</div>
                     <h3>SNSでの拡散力</h3>
                     <video controls class="video-player">
-                        <source src="./Vimeo 2/hirokoop.mp4" type="video/mp4">
+                        <source src="./vimeo2/4.mp4" type="video/mp4">
                         お使いのブラウザは動画の再生に対応していません。
                     </video>
                     <p>動画コンテンツはSNSで1200%以上シェアされやすく、オーガニックリーチを大幅に拡大します。魅力的な動画は自然と拡散され、新たな顧客層にリーチします。</p>
                 </div>
-                
+
                 <div class="benefit-item">
                     <div class="benefit-number">05</div>
                     <h3>長期的な資産価値</h3>
                     <video controls class="video-player">
-                        <source src="./Vimeo 2/zyuku2.mp4" type="video/mp4">
+                        <source src="./vimeo2/5.mp4" type="video/mp4">
                         お使いのブラウザは動画の再生に対応していません。
                     </video>
                     <p>高品質な動画コンテンツは長期間にわたって活用でき、継続的なマーケティング資産となります。一度の制作で複数のチャネルで活用できるコスト効率の良い投資です。</p>
@@ -351,7 +408,7 @@
                     <div class="benefit-number">06</div>
                     <h3>しっかりサポート</h3>
                     <video controls class="video-player">
-                        <source src="./Vimeo 2/hirokoomake.mp4" type="video/mp4">
+                        <source src="./vimeo2/6.mp4" type="video/mp4">
                         お使いのブラウザは動画の再生に対応していません。
                     </video>
                     <p>企画から撮影、編集、LINE構築まで一貫したサポート体制で、あなたのビジネスの成長を全面的にバックアップします。補助金関係のサポートも含めた総合的なサービスを提供します。</p>
