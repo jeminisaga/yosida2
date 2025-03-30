@@ -348,6 +348,105 @@
                 padding: 20px;
             }
         }
+
+        /* Instagramスタイルのお客様の声 */
+        .testimonials-instagram {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            padding: 1rem 0;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .instagram-post {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            margin-bottom: 0;
+        }
+
+        .post-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.4rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .profile {
+            display: flex;
+            align-items: center;
+            gap: 1.4rem;
+        }
+
+        .profile-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .profile-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .profile-name {
+            font-weight: 600;
+            color: #333;
+            font-size: 0.9rem;
+            margin-right: 0.5rem;
+        }
+
+        .post-date {
+            color: #999;
+            font-size: 0.8rem;
+            flex-shrink: 0;
+        }
+
+        .post-content {
+            padding: 1.2rem;
+            line-height: 1.6;
+            word-break: break-word;
+        }
+
+        .post-content p {
+            margin-bottom: 0.8rem;
+            color: #333;
+            font-size: 1rem;
+        }
+
+        .post-footer {
+            display: flex;
+            gap: 1rem;
+            padding: 1rem;
+            border-top: 1px solid #eee;
+        }
+
+        .like, .comment {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .testimonials-instagram {
+                grid-template-columns: 1fr;
+                padding: 1rem;
+            }
+        }
+
+        .testimonials {
+            padding: 4rem 0 0 0;
+            background: #f8f9fa;
+        }
     </style>
 </head>
 <body>
@@ -1129,139 +1228,91 @@
     <!-- お客様の声セクション -->
     <section class="testimonials">
         <div class="container">
-            <h2 class="section-title">お客様の声</h2>
+            <h2 class="section-title">お客様の<span class="highlight">声</span></h2>
             
-            <!-- Instagramストーリーズ風スライダー -->
-            <div class="instagram-stories">
-                <div class="stories-slider">
-                    <div class="stories-track">
-                        <!-- ストーリーズアイテム -->
-                        <div class="story-item" onclick="openModal('./images/4.png')">
-                            <div class="story-rectangle">
-                                <img src="./images/4.png" alt="お客様の声 1" class="story-thumbnail">
+            <div class="testimonials-instagram">
+                <!-- 投稿1（元の投稿3） -->
+                <div class="instagram-post">
+                    <div class="post-header">
+                        <div class="profile">
+                            <div class="profile-icon">
+                                <img src="./images/5.png" alt="お客様3">
                             </div>
-                            <p class="story-title">お客様の声 1</p>
+                            <div class="profile-name">お客様の声 #1</div>
                         </div>
+                        <div class="post-date">2024.02</div>
+                    </div>
+                    <div class="post-content">
+                        <p>吉田さん、本日はありがとうございました‼️</p>
+                        <p>初めての動画撮影だったのですが吉田さんの人柄の良さで、特に不安なく当日を迎えられました🥲</p>
+                        <p>撮影も進めてからお写真まで、当日の注意点や内容のトピックパターンなども事前に予め教えてくださることが出来味のでスムーズに最後まで撮影できました📸</p>
+                        <p>超スピ返信でサポートもしていただき本当にありがとうございました‼️</p>
+                        <p>当日自宅玄関<br>撮影前から緊張していましたが、吉田さんの場所に向かうとその時点でもうめちゃくちゃリラックスして望めました✨</p>
+                        <p>初めてには自分を出せていたかなじゃないかと思っています</p>
+                        <p>撮影中の指示についてもたくさんのアイデアを提供していただけたので、単調にならず済みました</p>
+                    </div>
+                    <div class="post-footer">
+                        <span class="like">❤️ 167</span>
+                        <span class="comment">💬 18</span>
+                    </div>
+                </div>
 
-                        <div class="story-item" onclick="openModal('./images/5.png')">
-                            <div class="story-rectangle">
-                                <img src="./images/5.png" alt="お客様の声 2" class="story-thumbnail">
+                <!-- 投稿2 -->
+                <div class="instagram-post">
+                    <div class="post-header">
+                        <div class="profile">
+                            <div class="profile-icon">
+                                <img src="./images/6.png" alt="お客様2">
                             </div>
-                            <p class="story-title">お客様の声 2</p>
+                            <div class="profile-name">お客様の声 #2</div>
                         </div>
+                        <div class="post-date">2024.02</div>
+                    </div>
+                    <div class="post-content">
+                        <p>お世話になります！今回動画編集を2本分お願いさせていただきありがとうございました😊</p>
+                        <p>誰にお願いしようと思った時に吉田さんのお顔が思い浮かびご連絡させていただいた日からの対応が、お忙しいはずなのに早く感動しました。</p>
+                        <p>テキストコミュニケーションもスムーズで大変助かりました。またパソコン依頼できるようまずは撮影を頑張ります！笑</p>
+                    </div>
+                    <div class="post-footer">
+                        <span class="like">❤️ 145</span>
+                        <span class="comment">💬 15</span>
+                    </div>
+                </div>
 
-                        <div class="story-item" onclick="openModal('./images/6.png')">
-                            <div class="story-rectangle">
-                                <img src="./images/6.png" alt="お客様の声 3" class="story-thumbnail">
+                <!-- 投稿3（元の投稿1） -->
+                <div class="instagram-post">
+                    <div class="post-header">
+                        <div class="profile">
+                            <div class="profile-icon">
+                                <img src="./images/4.png" alt="お客様1">
                             </div>
-                            <p class="story-title">お客様の声 3</p>
+                            <div class="profile-name">お客様の声 #3</div>
                         </div>
-
-                        <div class="story-item" onclick="openModal('./images/7.png')">
-                            <div class="story-rectangle">
-                                <img src="./images/7.png" alt="お客様の声 4" class="story-thumbnail">
-                            </div>
-                            <p class="story-title">お客様の声 4</p>
-                        </div>
-
-                        <div class="story-item" onclick="openModal('./images/8.png')">
-                            <div class="story-rectangle">
-                                <img src="./images/8.png" alt="お客様の声 5" class="story-thumbnail">
-                            </div>
-                            <p class="story-title">お客様の声 5</p>
-                        </div>
+                        <div class="post-date">2024.02</div>
+                    </div>
+                    <div class="post-content">
+                        <p>吉田さん🌈</p>
+                        <p>動画編集見ました！いつも見てるYouTubeだー！って感激しました！</p>
+                        <p>動画の合間の画像や字幕とか、確認するもの全てが「ほんもののYouTube！」（笑）</p>
+                        <p>さすがやる気を出させる天才吉田！！<br>↑勝手な渾名です😂（笑）</p>
+                        <p>わたしも台本や話し方工夫しようと思いました！</p>
+                        <p>次の撮影と編集もよろしくお願いいたします🙇‍♀️</p>
+                        <p>吉田さん、ツッツムッチャンコ最高でした😊❗❗❗❗❗❗❗❗❗</p>
+                        <p>ダラダラ、しどろもどろなトークだったのにビジバシ言えてる～✨って感動しました🥺</p>
+                        <p>パソコンカタカタしてるところを、ふだん過ぎたかないと思っていましたが全然違和感ないです！<br>もっとオーバーにミスカルにしても全然問題なさそうだなって感じました✨</p>
+                        <p>一方で課題も見えました⚠<br>もっとリズミカルに喋れるように台本をある程度覚えておかないと、と感じました⚠<br>次回はその辺を改めて望みます❗</p>
+                        <p>引き続き、どうぞ宜しくお願いいたします❗<br>動画クリエイトして下さりありがとうございました‼️</p>
+                        <p>いえ！もう最高すぎました🥺✨<br>ありがとうございました！</p>
+                        <p>前回お伝えしてなかったですが、細かなテロップの補正とかもしていただいて、全部見直していただいているんだなとすごく感じます✨</p>
+                        <p>（あなたの満室埋めます→空室埋めますに修正していただいているとか、セリフの言い回しの補正とか）</p>
+                        <p>細部までこだわって下さってるのを感じながら感謝感謝しています✨</p>
+                    </div>
+                    <div class="post-footer">
+                        <span class="like">❤️ 468</span>
+                        <span class="comment">💬 47</span>
                     </div>
                 </div>
             </div>
-
-            <!-- モーダルウィンドウ -->
-            <div id="imageModal" class="modal">
-                <span class="modal-close" onclick="closeModal()">&times;</span>
-                <img id="modalImage" class="modal-content" src="" alt="拡大画像">
-            </div>
-
-            <script>
-                // スライダーの機能
-                document.addEventListener('DOMContentLoaded', function() {
-                    const slider = document.querySelector('.stories-slider');
-                    let isDown = false;
-                    let startX;
-                    let scrollLeft;
-
-                    slider.addEventListener('mousedown', (e) => {
-                        isDown = true;
-                        slider.classList.add('active');
-                        startX = e.pageX - slider.offsetLeft;
-                        scrollLeft = slider.scrollLeft;
-                    });
-
-                    slider.addEventListener('mouseleave', () => {
-                        isDown = false;
-                        slider.classList.remove('active');
-                    });
-
-                    slider.addEventListener('mouseup', () => {
-                        isDown = false;
-                        slider.classList.remove('active');
-                    });
-
-                    slider.addEventListener('mousemove', (e) => {
-                        if (!isDown) return;
-                        e.preventDefault();
-                        const x = e.pageX - slider.offsetLeft;
-                        const walk = (x - startX) * 2;
-                        slider.scrollLeft = scrollLeft - walk;
-                    });
-
-                    // タッチデバイス対応
-                    slider.addEventListener('touchstart', (e) => {
-                        isDown = true;
-                        slider.classList.add('active');
-                        startX = e.touches[0].pageX - slider.offsetLeft;
-                        scrollLeft = slider.scrollLeft;
-                    });
-
-                    slider.addEventListener('touchend', () => {
-                        isDown = false;
-                        slider.classList.remove('active');
-                    });
-
-                    slider.addEventListener('touchmove', (e) => {
-                        if (!isDown) return;
-                        e.preventDefault();
-                        const x = e.touches[0].pageX - slider.offsetLeft;
-                        const walk = (x - startX) * 2;
-                        slider.scrollLeft = scrollLeft - walk;
-                    });
-                });
-
-                // モーダルウィンドウの機能
-                function openModal(imageSrc) {
-                    const modal = document.getElementById('imageModal');
-                    const modalImg = document.getElementById('modalImage');
-                    modal.style.display = "block";
-                    modalImg.src = imageSrc;
-
-                    // スクロール防止
-                    document.body.style.overflow = 'hidden';
-                }
-
-                function closeModal() {
-                    const modal = document.getElementById('imageModal');
-                    modal.style.display = "none";
-                    
-                    // スクロール再開
-                    document.body.style.overflow = 'auto';
-                }
-
-                // モーダル外クリックで閉じる
-                window.onclick = function(event) {
-                    const modal = document.getElementById('imageModal');
-                    if (event.target == modal) {
-                        closeModal();
-                    }
-                }
-            </script>
         </div>
     </section>
 
