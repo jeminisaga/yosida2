@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="800" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#FF6B6B;stop-opacity:0.1"/>
+            <stop offset="100%" style="stop-color:#4ECDC4;stop-opacity:0.1"/>
+        </linearGradient>
+        <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" style="stop-color:#FF6B6B"/>
+            <stop offset="100%" style="stop-color:#4ECDC4"/>
+        </linearGradient>
+    </defs>
+    
+    <!-- 背景 -->
+    <rect width="100%" height="100%" fill="url(#bgGradient)"/>
+    
+    <!-- グリッド線 -->
+    <g stroke="#000" stroke-opacity="0.1" stroke-width="1">
+        <line x1="100" y1="100" x2="100" y2="700"/>
+        <line x1="300" y1="100" x2="300" y2="700"/>
+        <line x1="500" y1="100" x2="500" y2="700"/>
+        <line x1="700" y1="100" x2="700" y2="700"/>
+        <line x1="900" y1="100" x2="900" y2="700"/>
+        <line x1="100" y1="100" x2="900" y2="100"/>
+        <line x1="100" y1="300" x2="900" y2="300"/>
+        <line x1="100" y1="500" x2="900" y2="500"/>
+        <line x1="100" y1="700" x2="900" y2="700"/>
+    </g>
+    
+    <!-- 上昇グラフ -->
+    <path d="M100,700 Q300,600 500,400 T900,200" 
+          fill="none" 
+          stroke="url(#lineGradient)" 
+          stroke-width="4"/>
+    
+    <!-- データポイント -->
+    <g>
+        <circle cx="100" cy="700" r="8" fill="#FF6B6B"/>
+        <circle cx="300" cy="600" r="8" fill="#FF6B6B"/>
+        <circle cx="500" cy="400" r="8" fill="#4ECDC4"/>
+        <circle cx="700" cy="300" r="8" fill="#4ECDC4"/>
+        <circle cx="900" cy="200" r="8" fill="#4ECDC4"/>
+    </g>
+    
+    <!-- スマートフォンアイコン -->
+    <g transform="translate(950,50)">
+        <rect x="0" y="0" width="200" height="400" rx="20" fill="#333"/>
+        <rect x="20" y="40" width="160" height="320" rx="5" fill="#fff"/>
+        <circle cx="100" cy="380" r="15" fill="#666"/>
+    </g>
+    
+    <!-- 人物シルエット -->
+    <g transform="translate(50,400)">
+        <path d="M0,200 C50,150 100,100 150,100 S250,150 300,200" 
+              fill="none" stroke="#666" stroke-width="3"/>
+        <circle cx="150" cy="50" r="30" fill="#666"/>
+    </g>
+</svg> 

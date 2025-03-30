@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="800" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#845EF7;stop-opacity:0.1"/>
+            <stop offset="100%" style="stop-color:#DA77F2;stop-opacity:0.1"/>
+        </linearGradient>
+        <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+            <feMerge>
+                <feMergeNode in="coloredBlur"/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+    </defs>
+    
+    <!-- 背景 -->
+    <rect width="100%" height="100%" fill="url(#bgGradient)"/>
+    
+    <!-- 中央のスマートフォン -->
+    <g transform="translate(600,400)">
+        <!-- スマートフォン本体 -->
+        <rect x="-40" y="-70" width="80" height="140" rx="10" 
+              fill="#845EF7" stroke="#DA77F2" stroke-width="4"/>
+        <!-- 画面 -->
+        <rect x="-35" y="-65" width="70" height="130" rx="5" 
+              fill="#fff"/>
+        <!-- 再生ボタン -->
+        <path d="M-15,-20 L25,0 L-15,20 Z" 
+              fill="#845EF7"/>
+    </g>
+    
+    <!-- SNSアイコン -->
+    <g>
+        <!-- Twitter -->
+        <g transform="translate(300,300)">
+            <circle r="30" fill="#845EF7"/>
+            <path d="M-15,0 C-15,-15 15,-15 15,0 C15,15 -15,15 -15,0" 
+                  stroke="#fff" stroke-width="4" fill="none"/>
+            <animate attributeName="transform" 
+                     values="translate(300,300);translate(280,280);translate(300,300)" 
+                     dur="2s" repeatCount="indefinite"/>
+        </g>
+        
+        <!-- Facebook -->
+        <g transform="translate(900,300)">
+            <circle r="30" fill="#DA77F2"/>
+            <rect x="-5" y="-15" width="10" height="30" fill="#fff"/>
+            <rect x="-15" y="-5" width="30" height="10" fill="#fff"/>
+            <animate attributeName="transform" 
+                     values="translate(900,300);translate(920,280);translate(900,300)" 
+                     dur="2s" repeatCount="indefinite"/>
+        </g>
+        
+        <!-- Instagram -->
+        <g transform="translate(300,600)">
+            <circle r="30" fill="#845EF7"/>
+            <circle r="15" stroke="#fff" stroke-width="4" fill="none"/>
+            <circle cx="15" cy="-15" r="5" fill="#fff"/>
+            <animate attributeName="transform" 
+                     values="translate(300,600);translate(280,620);translate(300,600)" 
+                     dur="2s" repeatCount="indefinite"/>
+        </g>
+        
+        <!-- YouTube -->
+        <g transform="translate(900,600)">
+            <circle r="30" fill="#DA77F2"/>
+            <path d="M-15,-10 L15,-10 L15,10 L-15,10 Z" 
+                  stroke="#fff" stroke-width="4" fill="none"/>
+            <path d="M-5,-5 L10,0 L-5,5 Z" fill="#fff"/>
+            <animate attributeName="transform" 
+                     values="translate(900,600);translate(920,620);translate(900,600)" 
+                     dur="2s" repeatCount="indefinite"/>
+        </g>
+    </g>
+    
+    <!-- 接続線 -->
+    <g stroke="#845EF7" stroke-width="2" filter="url(#glow)">
+        <line x1="600" y1="400" x2="300" y2="300">
+            <animate attributeName="stroke-dasharray" 
+                     values="0,1000;1000,0" dur="2s" repeatCount="indefinite"/>
+        </line>
+        <line x1="600" y1="400" x2="900" y2="300">
+            <animate attributeName="stroke-dasharray" 
+                     values="0,1000;1000,0" dur="2s" repeatCount="indefinite"/>
+        </line>
+        <line x1="600" y1="400" x2="300" y2="600">
+            <animate attributeName="stroke-dasharray" 
+                     values="0,1000;1000,0" dur="2s" repeatCount="indefinite"/>
+        </line>
+        <line x1="600" y1="400" x2="900" y2="600">
+            <animate attributeName="stroke-dasharray" 
+                     values="0,1000;1000,0" dur="2s" repeatCount="indefinite"/>
+        </line>
+    </g>
+    
+    <!-- 共有アイコン -->
+    <g transform="translate(600,250)">
+        <circle r="25" fill="#DA77F2"/>
+        <path d="M-10,0 L10,0 M10,0 L0,-10 M10,0 L0,10" 
+              stroke="#fff" stroke-width="4" 
+              stroke-linecap="round"/>
+        <animate attributeName="transform" 
+                 values="translate(600,250);translate(600,230);translate(600,250)" 
+                 dur="1s" repeatCount="indefinite"/>
+    </g>
+</svg> 

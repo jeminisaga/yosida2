@@ -247,16 +247,16 @@ ul {
 }
 
 .benefit-item {
-    background-color: white;
-    border-radius: var(--border-radius);
+    background: white;
     padding: 30px;
-    box-shadow: var(--box-shadow);
-    transition: var(--transition);
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .benefit-item:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
 }
 
 .benefit-number {
@@ -270,6 +270,22 @@ ul {
 .benefit-item h3 {
     font-size: 1.5rem;
     margin-bottom: 15px;
+}
+
+.benefit-image {
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+    border-radius: 8px;
+    margin: 15px 0;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+    background-color: #fff;
+    padding: 20px;
+}
+
+.benefit-item:hover .benefit-image {
+    transform: scale(1.02);
 }
 
 .benefits-cta {
@@ -961,6 +977,15 @@ ul {
     .form-group {
         width: 100%;
         margin-right: 0;
+    }
+    
+    .benefit-image {
+        height: 180px;
+        padding: 15px;
+    }
+    
+    .benefit-item {
+        padding: 20px;
     }
 }
 

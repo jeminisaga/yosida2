@@ -274,18 +274,23 @@
             }
         }
 
+        .benefits {
+            padding: 80px 0;
+            background-color: #f8f9fa;
+        }
+
         .benefits-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
-            margin-top: 40px;
+            margin-top: 50px;
         }
 
         .benefit-item {
             background: white;
-            border-radius: 15px;
-            padding: 25px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
             transition: transform 0.3s ease;
         }
 
@@ -294,14 +299,28 @@
         }
 
         .benefit-number {
-            font-size: 2rem;
+            font-size: 24px;
             font-weight: bold;
-            color: #0056b3;
+            color: #007bff;
             margin-bottom: 15px;
         }
 
+        .benefit-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin: 15px 0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .benefit-item:hover .benefit-image {
+            transform: scale(1.02);
+        }
+
         .benefit-item h3 {
-            font-size: 1.4rem;
+            font-size: 20px;
             margin-bottom: 15px;
             color: #333;
         }
@@ -309,48 +328,24 @@
         .benefit-item p {
             color: #666;
             line-height: 1.6;
-            margin-top: 15px;
+        }
+
+        .benefits-cta {
+            text-align: center;
+            margin-top: 50px;
         }
 
         @media (max-width: 768px) {
-            .benefits-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
+            .benefits {
+                padding: 60px 0;
             }
-
+            
+            .benefit-image {
+                height: 180px;
+            }
+            
             .benefit-item {
                 padding: 20px;
-            }
-
-            .benefit-number {
-                font-size: 1.8rem;
-            }
-
-            .benefit-item h3 {
-                font-size: 1.2rem;
-            }
-        }
-
-        .benefit-item iframe {
-            margin: 15px 0;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-        }
-
-        @media (max-width: 768px) {
-            .benefit-item iframe {
-                height: 200px;
-            }
-        }
-
-        .case-video iframe {
-            border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        
-        @media (max-width: 768px) {
-            .case-video iframe {
-                height: 300px;
             }
         }
     </style>
@@ -392,79 +387,433 @@
                 <div class="benefit-item">
                     <div class="benefit-number">01</div>
                     <h3>集客力が飛躍的に向上</h3>
-                    <iframe title="vimeo-player" 
-                            src="https://player.vimeo.com/video/1067703372?h=59bada8962&amp;title=0&amp;byline=0&amp;portrait=0&amp;background=1" 
-                            width="100%" 
-                            height="360" 
-                            frameborder="0" 
-                            allowfullscreen>
-                    </iframe>
+                    <div class="benefit-image">
+                        <svg width="100%" height="100%" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#4ECDC4;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#FF6B6B;stop-opacity:1" />
+                                </linearGradient>
+                                <filter id="glow1">
+                                    <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+                                    <feMerge>
+                                        <feMergeNode in="coloredBlur"/>
+                                        <feMergeNode in="SourceGraphic"/>
+                                    </feMerge>
+                                </filter>
+                            </defs>
+                            <rect width="100%" height="100%" fill="#f8f9fa"/>
+                            
+                            <!-- グリッド背景 -->
+                            <g stroke="#eee" stroke-width="0.5">
+                                <path d="M50,50 H350 M50,100 H350 M50,150 H350 M50,200 H350 M50,250 H350"/>
+                                <path d="M50,50 V250 M100,50 V250 M150,50 V250 M200,50 V250 M250,50 V250 M300,50 V250 M350,50 V250"/>
+                            </g>
+                            
+                            <!-- メインのグラフ -->
+                            <path d="M50,250 Q200,50 350,50" stroke="url(#grad1)" stroke-width="6" fill="none" filter="url(#glow1)">
+                                <animate attributeName="stroke-dasharray" from="400" to="0" dur="2s"/>
+                                <animate attributeName="stroke-width" values="6;8;6" dur="2s" repeatCount="indefinite"/>
+                            </path>
+                            
+                            <!-- データポイント -->
+                            <g transform="translate(50,250)">
+                                <circle cx="0" cy="0" r="15" fill="#4ECDC4" filter="url(#glow1)">
+                                    <animate attributeName="r" values="15;18;15" dur="2s" repeatCount="indefinite"/>
+                                </circle>
+                                <text x="0" y="5" fill="white" text-anchor="middle" font-size="12">0</text>
+                            </g>
+                            
+                            <g transform="translate(200,150)">
+                                <circle cx="0" cy="0" r="15" fill="#4ECDC4" filter="url(#glow1)">
+                                    <animate attributeName="r" values="15;18;15" dur="2s" repeatCount="indefinite"/>
+                                </circle>
+                                <text x="0" y="5" fill="white" text-anchor="middle" font-size="12">50</text>
+                            </g>
+                            
+                            <g transform="translate(350,50)">
+                                <circle cx="0" cy="0" r="15" fill="#FF6B6B" filter="url(#glow1)">
+                                    <animate attributeName="r" values="15;18;15" dur="2s" repeatCount="indefinite"/>
+                                </circle>
+                                <text x="0" y="5" fill="white" text-anchor="middle" font-size="12">100</text>
+                            </g>
+                            
+                            <!-- 上昇を示す矢印 -->
+                            <g transform="translate(350,30)">
+                                <path d="M-10,10 L0,0 L10,10" stroke="#FF6B6B" stroke-width="4" fill="none" filter="url(#glow1)">
+                                    <animate attributeName="opacity" values="0;1" dur="1s"/>
+                                    <animate attributeName="transform" values="translate(0,0);translate(0,-5);translate(0,0)" dur="2s" repeatCount="indefinite"/>
+                                </path>
+                            </g>
+                        </svg>
+                    </div>
                     <p>「うちのサービスの良さ、もっとうまく伝えられないかな...」そんなお悩み、私たちが解決します。動画なら、お客様の笑顔やスタッフの熱意、サービスの雰囲気まで、ありのままに伝えることができるんです。実際に、動画を導入されたお客様からは「HPを見た人が、もう私たちのことを知ってるみたいに来てくれるようになった」という声をたくさんいただいています。</p>
                 </div>
 
                 <div class="benefit-item">
                     <div class="benefit-number">02</div>
                     <h3>ブランド認知度の向上</h3>
-                    <iframe title="vimeo-player" 
-                            src="https://player.vimeo.com/video/1067703332?h=f80434fac4&amp;title=0&amp;byline=0&amp;portrait=0&amp;background=1" 
-                            width="100%" 
-                            height="360" 
-                            frameborder="0" 
-                            allowfullscreen>
-                    </iframe>
+                    <div class="benefit-image">
+                        <svg width="100%" height="100%" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#339AF0;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#1971C2;stop-opacity:1" />
+                                </linearGradient>
+                                <filter id="glow2">
+                                    <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                                    <feMerge>
+                                        <feMergeNode in="coloredBlur"/>
+                                        <feMergeNode in="SourceGraphic"/>
+                                    </feMerge>
+                                </filter>
+                                <pattern id="pattern2" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+                                    <circle cx="20" cy="20" r="1" fill="#339AF0" opacity="0.2"/>
+                                </pattern>
+                            </defs>
+                            <rect width="100%" height="100%" fill="#f8f9fa"/>
+                            <rect width="100%" height="100%" fill="url(#pattern2)"/>
+                            
+                            <!-- 中央のブランドシンボル -->
+                            <g transform="translate(200,150)">
+                                <circle cx="0" cy="0" r="50" fill="url(#grad2)" filter="url(#glow2)"/>
+                                <text x="0" y="8" fill="white" font-size="24" text-anchor="middle" font-weight="bold" filter="url(#glow2)">BRAND</text>
+                                
+                                <!-- 回転する光の輪 -->
+                                <circle cx="0" cy="0" r="65" fill="none" stroke="url(#grad2)" stroke-width="2" opacity="0.5">
+                                    <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="10s" repeatCount="indefinite"/>
+                                </circle>
+                                <circle cx="0" cy="0" r="80" fill="none" stroke="url(#grad2)" stroke-width="2" opacity="0.3">
+                                    <animateTransform attributeName="transform" type="rotate" from="360" to="0" dur="15s" repeatCount="indefinite"/>
+                                </circle>
+                            </g>
+                            
+                            <!-- 波紋エフェクト -->
+                            <circle cx="200" cy="150" r="40" fill="none" stroke="url(#grad2)" stroke-width="2">
+                                <animate attributeName="r" values="40;90" dur="3s" repeatCount="indefinite"/>
+                                <animate attributeName="opacity" values="0.8;0" dur="3s" repeatCount="indefinite"/>
+                            </circle>
+                            <circle cx="200" cy="150" r="40" fill="none" stroke="url(#grad2)" stroke-width="2">
+                                <animate attributeName="r" values="40;90" dur="3s" begin="1s" repeatCount="indefinite"/>
+                                <animate attributeName="opacity" values="0.8;0" dur="3s" begin="1s" repeatCount="indefinite"/>
+                            </circle>
+                            
+                            <!-- 周囲のアイコン -->
+                            <g transform="translate(100,100)">
+                                <circle cx="0" cy="0" r="20" fill="#339AF0" filter="url(#glow2)">
+                                    <animate attributeName="opacity" values="0;1" dur="0.5s"/>
+                                </circle>
+                                <path d="M-8,-8 L8,8 M-8,8 L8,-8" stroke="white" stroke-width="2"/>
+                            </g>
+                            <g transform="translate(300,100)">
+                                <circle cx="0" cy="0" r="20" fill="#339AF0" filter="url(#glow2)">
+                                    <animate attributeName="opacity" values="0;1" dur="0.5s" begin="0.2s"/>
+                                </circle>
+                                <path d="M-8,-8 L8,8 M-8,8 L8,-8" stroke="white" stroke-width="2"/>
+                            </g>
+                            <g transform="translate(200,250)">
+                                <circle cx="0" cy="0" r="20" fill="#339AF0" filter="url(#glow2)">
+                                    <animate attributeName="opacity" values="0;1" dur="0.5s" begin="0.4s"/>
+                                </circle>
+                                <path d="M-8,-8 L8,8 M-8,8 L8,-8" stroke="white" stroke-width="2"/>
+                            </g>
+                        </svg>
+                    </div>
                     <p>「動画を見て、ここの雰囲気いいな、って思ったんです」。こんな風に言ってくださるお客様が増えています。なぜでしょう？それは、動画には不思議な魅力があるから。スタッフの何気ない笑顔、丁寧な作業の様子、お店の温かい雰囲気...。文字や写真では伝えきれない、あなたのお店やサービスの"らしさ"を、動画なら自然な形で届けられるんです。</p>
                 </div>
 
                 <div class="benefit-item">
                     <div class="benefit-number">03</div>
                     <h3>コンバージョン率の改善</h3>
-                    <iframe title="vimeo-player" 
-                            src="https://player.vimeo.com/video/1067703286?h=e02ac017eb&amp;title=0&amp;byline=0&amp;portrait=0&amp;background=1" 
-                            width="100%" 
-                            height="360" 
-                            frameborder="0" 
-                            allowfullscreen>
-                    </iframe>
+                    <div class="benefit-image">
+                        <svg width="100%" height="100%" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="grad3" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#37B24D;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#2F9E44;stop-opacity:1" />
+                                </linearGradient>
+                                <filter id="glow3">
+                                    <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                                    <feMerge>
+                                        <feMergeNode in="coloredBlur"/>
+                                        <feMergeNode in="SourceGraphic"/>
+                                    </feMerge>
+                                </filter>
+                                <pattern id="pattern3" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+                                    <circle cx="20" cy="20" r="1" fill="#37B24D" opacity="0.2"/>
+                                </pattern>
+                            </defs>
+                            <rect width="100%" height="100%" fill="#f8f9fa"/>
+                            <rect width="100%" height="100%" fill="url(#pattern3)"/>
+                            
+                            <!-- メインの円と数値 -->
+                            <g transform="translate(200,150)">
+                                <circle cx="0" cy="0" r="60" fill="url(#grad3)" filter="url(#glow3)">
+                                    <animate attributeName="r" values="55;60;55" dur="2s" repeatCount="indefinite"/>
+                                </circle>
+                                <text x="0" y="15" fill="white" font-size="36" text-anchor="middle" font-weight="bold" filter="url(#glow3)">
+                                    +30%
+                                    <animate attributeName="opacity" values="0;1" dur="1s"/>
+                                </text>
+                                
+                                <!-- 回転する光の輪 -->
+                                <circle cx="0" cy="0" r="70" fill="none" stroke="url(#grad3)" stroke-width="2" opacity="0.5">
+                                    <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="8s" repeatCount="indefinite"/>
+                                </circle>
+                            </g>
+                            
+                            <!-- 上向き矢印のアニメーション -->
+                            <g transform="translate(200,150)">
+                                <path d="M0,80 L0,-80" stroke="#2F9E44" stroke-width="8" stroke-linecap="round" filter="url(#glow3)">
+                                    <animate attributeName="stroke-dasharray" values="0,160;160,0" dur="2s"/>
+                                </path>
+                                <path d="M-20,-60 L0,-80 L20,-60" fill="none" stroke="#2F9E44" stroke-width="8" stroke-linecap="round" filter="url(#glow3)">
+                                    <animate attributeName="opacity" values="0;1" dur="2s"/>
+                                </path>
+                                
+                                <!-- 浮遊するプラスマーク -->
+                                <g>
+                                    <path d="M-40,0 L40,0 M0,-40 L0,40" stroke="#2F9E44" stroke-width="4" opacity="0.3">
+                                        <animateTransform attributeName="transform" type="translate" values="0,0;-20,-20;0,0" dur="3s" repeatCount="indefinite"/>
+                                    </path>
+                                </g>
+                                <g>
+                                    <path d="M-30,0 L30,0 M0,-30 L0,30" stroke="#2F9E44" stroke-width="4" opacity="0.3">
+                                        <animateTransform attributeName="transform" type="translate" values="0,0;20,20;0,0" dur="4s" repeatCount="indefinite"/>
+                                    </path>
+                                </g>
+                            </g>
+                        </svg>
+                    </div>
                     <p>「実際どんな感じなんだろう...」そんなお客様の不安な気持ち、よく分かります。だからこそ、私たちは動画で"実際の体験"をお見せすることを大切にしています。例えば、実際のお客様の笑顔や感想、商品の使い方、サービスを受けている様子など。これを見ることで、「あ、こんな感じなんだ！」と安心していただけるんです。その安心感が、お客様の決断を後押しします。</p>
                 </div>
 
                 <div class="benefit-item">
                     <div class="benefit-number">04</div>
                     <h3>SNSでの拡散力</h3>
-                    <iframe title="vimeo-player" 
-                            src="https://player.vimeo.com/video/1067703244?h=f48808dd64&amp;title=0&amp;byline=0&amp;portrait=0&amp;background=1" 
-                            width="100%" 
-                            height="360" 
-                            frameborder="0" 
-                            allowfullscreen>
-                    </iframe>
-                    <p>心に響く動画には、不思議な力があります。見た人が「これ、友達にも教えたい！」と思わず共有したくなるんです。特に最近は、InstagramやTikTokで「いい動画に出会った！」という投稿をよく目にしますよね。実は、そんな"シェアしたくなる動画"を作るコツ、私たちは知っているんです。あなたのサービスの魅力を、お客様自身が広めたくなる、そんな動画を一緒に作っていきましょう。</p>
+                    <div class="benefit-image">
+                        <svg width="100%" height="100%" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="grad4" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#845EF7;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#BE4BDB;stop-opacity:1" />
+                                </linearGradient>
+                                <filter id="glow4">
+                                    <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                                    <feMerge>
+                                        <feMergeNode in="coloredBlur"/>
+                                        <feMergeNode in="SourceGraphic"/>
+                                    </feMerge>
+                                </filter>
+                                <pattern id="pattern4" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+                                    <circle cx="20" cy="20" r="1" fill="#845EF7" opacity="0.2"/>
+                                </pattern>
+                            </defs>
+                            <rect width="100%" height="100%" fill="#f8f9fa"/>
+                            <rect width="100%" height="100%" fill="url(#pattern4)"/>
+                            
+                            <!-- 中央の動画プレイヤー -->
+                            <g transform="translate(200,150)">
+                                <rect x="-40" y="-30" width="80" height="60" rx="10" fill="url(#grad4)" filter="url(#glow4)"/>
+                                <path d="M-10,-15 L20,0 L-10,15 Z" fill="white">
+                                    <animate attributeName="opacity" values="0.8;1;0.8" dur="2s" repeatCount="indefinite"/>
+                                </path>
+                            </g>
+                            
+                            <!-- SNSアイコン -->
+                            <g transform="translate(100,100)">
+                                <circle cx="0" cy="0" r="25" fill="#1DA1F2" filter="url(#glow4)">
+                                    <animate attributeName="r" values="23;25;23" dur="2s" repeatCount="indefinite"/>
+                                </circle>
+                                <text x="0" y="8" fill="white" font-size="20" text-anchor="middle" font-weight="bold">T</text>
+                            </g>
+                            
+                            <g transform="translate(300,100)">
+                                <circle cx="0" cy="0" r="25" fill="#4267B2" filter="url(#glow4)">
+                                    <animate attributeName="r" values="23;25;23" dur="2s" repeatCount="indefinite" begin="0.5s"/>
+                                </circle>
+                                <text x="0" y="8" fill="white" font-size="20" text-anchor="middle" font-weight="bold">F</text>
+                            </g>
+                            
+                            <g transform="translate(100,200)">
+                                <circle cx="0" cy="0" r="25" fill="#E4405F" filter="url(#glow4)">
+                                    <animate attributeName="r" values="23;25;23" dur="2s" repeatCount="indefinite" begin="1s"/>
+                                </circle>
+                                <text x="0" y="8" fill="white" font-size="20" text-anchor="middle" font-weight="bold">I</text>
+                            </g>
+                            
+                            <g transform="translate(300,200)">
+                                <circle cx="0" cy="0" r="25" fill="#FF0000" filter="url(#glow4)">
+                                    <animate attributeName="r" values="23;25;23" dur="2s" repeatCount="indefinite" begin="1.5s"/>
+                                </circle>
+                                <text x="0" y="8" fill="white" font-size="20" text-anchor="middle" font-weight="bold">Y</text>
+                            </g>
+                            
+                            <!-- 接続線 -->
+                            <g stroke="url(#grad4)" stroke-width="2" stroke-dasharray="5,5">
+                                <path d="M100,100 L200,150">
+                                    <animate attributeName="stroke-dashoffset" values="0;-20" dur="1s" repeatCount="indefinite"/>
+                                </path>
+                                <path d="M300,100 L200,150">
+                                    <animate attributeName="stroke-dashoffset" values="0;-20" dur="1s" repeatCount="indefinite"/>
+                                </path>
+                                <path d="M100,200 L200,150">
+                                    <animate attributeName="stroke-dashoffset" values="0;-20" dur="1s" repeatCount="indefinite"/>
+                                </path>
+                                <path d="M300,200 L200,150">
+                                    <animate attributeName="stroke-dashoffset" values="0;-20" dur="1s" repeatCount="indefinite"/>
+                                </path>
+                            </g>
+                        </svg>
+                    </div>
+                    <p>「この動画、すごくいい！シェアしたい！」そんな声をたくさんいただいています。特にInstagramやTikTokでは、魅力的な動画は自然とシェアされやすい傾向にあります。お客様自身が「これ、いいな」と思える動画は、必然的に拡散されていくんです。私たちは、そんな"シェアしたくなる動画"作りのプロフェッショナル。あなたのサービスの魅力を、多くの人に広めるお手伝いをさせていただきます。</p>
                 </div>
 
                 <div class="benefit-item">
                     <div class="benefit-number">05</div>
                     <h3>長期的な資産価値</h3>
-                    <iframe title="vimeo-player" 
-                            src="https://player.vimeo.com/video/1067703186?h=54540f6841&amp;title=0&amp;byline=0&amp;portrait=0&amp;background=1" 
-                            width="100%" 
-                            height="360" 
-                            frameborder="0" 
-                            allowfullscreen>
-                    </iframe>
-                    <p>「この動画、いろんな場面で使えて本当に助かります」。こんな声をよくいただくんです。なぜなら、一度作った動画は、まるで便利な道具箱のような存在。ホームページでの紹介、SNSでの投稿、お客様との商談、新しいスタッフの採用...。使い道は本当にたくさん。しかも、時間が経っても色あせない魅力があるんです。「動画を作って良かった」。そう感じていただけるのは、きっとこんな理由からなんですね。</p>
+                    <div class="benefit-image">
+                        <svg width="100%" height="100%" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="grad5" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#FAB005;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#F08C00;stop-opacity:1" />
+                                </linearGradient>
+                                <filter id="glow5">
+                                    <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                                    <feMerge>
+                                        <feMergeNode in="coloredBlur"/>
+                                        <feMergeNode in="SourceGraphic"/>
+                                    </feMerge>
+                                </filter>
+                                <pattern id="pattern5" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+                                    <circle cx="20" cy="20" r="1" fill="#FAB005" opacity="0.2"/>
+                                </pattern>
+                            </defs>
+                            <rect width="100%" height="100%" fill="#f8f9fa"/>
+                            <rect width="100%" height="100%" fill="url(#pattern5)"/>
+                            
+                            <!-- 時計の文字盤 -->
+                            <g transform="translate(200,150)">
+                                <circle cx="0" cy="0" r="60" fill="url(#grad5)" filter="url(#glow5)"/>
+                                <circle cx="0" cy="0" r="55" fill="none" stroke="white" stroke-width="2"/>
+                                
+                                <!-- 時計の目盛り -->
+                                <g stroke="white" stroke-width="2">
+                                    <line x1="0" y1="-50" x2="0" y2="-45"/>
+                                    <line x1="25" y1="-43.3" x2="22.5" y2="-39"/>
+                                    <line x1="43.3" y1="-25" x2="39" y2="-22.5"/>
+                                    <line x1="50" y1="0" x2="45" y2="0"/>
+                                    <line x1="43.3" y1="25" x2="39" y2="22.5"/>
+                                    <line x1="25" y1="43.3" x2="22.5" y2="39"/>
+                                    <line x1="0" y1="50" x2="0" y2="45"/>
+                                    <line x1="-25" y1="43.3" x2="-22.5" y2="39"/>
+                                    <line x1="-43.3" y1="25" x2="-39" y2="22.5"/>
+                                    <line x1="-50" y1="0" x2="-45" y2="0"/>
+                                    <line x1="-43.3" y1="-25" x2="-39" y2="-22.5"/>
+                                    <line x1="-25" y1="-43.3" x2="-22.5" y2="-39"/>
+                                </g>
+                                
+                                <!-- 時計の針 -->
+                                <g stroke="white" stroke-width="3" stroke-linecap="round">
+                                    <line x1="0" y1="0" x2="0" y2="-35">
+                                        <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="60s" repeatCount="indefinite"/>
+                                    </line>
+                                    <line x1="0" y1="0" x2="25" y2="0">
+                                        <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="5s" repeatCount="indefinite"/>
+                                    </line>
+                                </g>
+                            </g>
+                            
+                            <!-- 成長グラフ -->
+                            <path d="M50,250 Q125,200 200,150 T350,50" stroke="url(#grad5)" stroke-width="4" fill="none" filter="url(#glow5)">
+                                <animate attributeName="stroke-dasharray" from="400" to="0" dur="2s"/>
+                            </path>
+                            
+                            <!-- 円マーク -->
+                            <g transform="translate(300,100)">
+                                <circle cx="0" cy="0" r="25" fill="url(#grad5)" filter="url(#glow5)">
+                                    <animate attributeName="r" values="23;25;23" dur="2s" repeatCount="indefinite"/>
+                                </circle>
+                                <text x="0" y="8" fill="white" font-size="24" text-anchor="middle" font-weight="bold">¥</text>
+                            </g>
+                        </svg>
+                    </div>
+                    <p>動画は、一度作れば長く使える優れものです。例えば、ホームページのファーストビューで会社の雰囲気を伝えたり、商品説明の補助として使ったり、採用活動で会社の魅力を伝えたり...。用途に合わせて、様々な場面で活用できます。つまり、動画は"使い捨て"の広告ではなく、長期的に価値を生み出す"資産"なんです。</p>
                 </div>
 
                 <div class="benefit-item">
                     <div class="benefit-number">06</div>
-                    <h3>しっかりサポート</h3>
-                    <iframe title="vimeo-player" 
-                            src="https://player.vimeo.com/video/1067703212?h=cc43aaa7fd&amp;title=0&amp;byline=0&amp;portrait=0&amp;background=1" 
-                            width="100%" 
-                            height="360" 
-                            frameborder="0" 
-                            allowfullscreen>
-                    </iframe>
-                    <p>「動画って難しそう...」「何から始めればいいんだろう...」。そんな不安な気持ち、私たちに任せてください。企画の段階から、撮影、編集はもちろん、完成後の活用方法まで、すべて私たちがそばについています。「分からないことがあったらすぐに聞ける」「困ったときにはすぐに相談できる」。そんな安心感を持っていただけるよう、とことんサポートさせていただきます。補助金の申請だって、私たちにお任せください。あなたのビジネスの成長を、本気で応援します。</p>
+                    <h3>充実のサポート体制</h3>
+                    <div class="benefit-image">
+                        <svg width="100%" height="100%" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="grad6" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#FF922B;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#F76707;stop-opacity:1" />
+                                </linearGradient>
+                                <filter id="glow6">
+                                    <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                                    <feMerge>
+                                        <feMergeNode in="coloredBlur"/>
+                                        <feMergeNode in="SourceGraphic"/>
+                                    </feMerge>
+                                </filter>
+                                <pattern id="pattern6" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+                                    <circle cx="20" cy="20" r="1" fill="#FF922B" opacity="0.2"/>
+                                </pattern>
+                            </defs>
+                            <rect width="100%" height="100%" fill="#f8f9fa"/>
+                            <rect width="100%" height="100%" fill="url(#pattern6)"/>
+                            
+                            <!-- 中央の24/7表示 -->
+                            <g transform="translate(200,150)">
+                                <circle cx="0" cy="0" r="50" fill="url(#grad6)" filter="url(#glow6)"/>
+                                <text x="0" y="8" fill="white" font-size="24" text-anchor="middle" font-weight="bold" filter="url(#glow6)">24/7</text>
+                                
+                                <!-- 回転する光の輪 -->
+                                <circle cx="0" cy="0" r="65" fill="none" stroke="url(#grad6)" stroke-width="2" opacity="0.5">
+                                    <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="10s" repeatCount="indefinite"/>
+                                </circle>
+                            </g>
+                            
+                            <!-- サポートアイコン -->
+                            <g transform="translate(100,100)">
+                                <circle cx="0" cy="0" r="30" fill="url(#grad6)" filter="url(#glow6)">
+                                    <animate attributeName="r" values="28;30;28" dur="2s" repeatCount="indefinite"/>
+                                </circle>
+                                <text x="0" y="8" fill="white" font-size="14" text-anchor="middle">企画</text>
+                            </g>
+                            
+                            <g transform="translate(300,100)">
+                                <circle cx="0" cy="0" r="30" fill="url(#grad6)" filter="url(#glow6)">
+                                    <animate attributeName="r" values="28;30;28" dur="2s" repeatCount="indefinite" begin="0.5s"/>
+                                </circle>
+                                <text x="0" y="8" fill="white" font-size="14" text-anchor="middle">撮影</text>
+                            </g>
+                            
+                            <g transform="translate(200,250)">
+                                <circle cx="0" cy="0" r="30" fill="url(#grad6)" filter="url(#glow6)">
+                                    <animate attributeName="r" values="28;30;28" dur="2s" repeatCount="indefinite" begin="1s"/>
+                                </circle>
+                                <text x="0" y="8" fill="white" font-size="14" text-anchor="middle">編集</text>
+                            </g>
+                            
+                            <!-- 接続線 -->
+                            <g stroke="url(#grad6)" stroke-width="2" stroke-dasharray="5,5">
+                                <path d="M100,100 L200,150">
+                                    <animate attributeName="stroke-dashoffset" values="0;-20" dur="1s" repeatCount="indefinite"/>
+                                </path>
+                                <path d="M300,100 L200,150">
+                                    <animate attributeName="stroke-dashoffset" values="0;-20" dur="1s" repeatCount="indefinite"/>
+                                </path>
+                                <path d="M200,250 L200,150">
+                                    <animate attributeName="stroke-dashoffset" values="0;-20" dur="1s" repeatCount="indefinite"/>
+                                </path>
+                            </g>
+                        </svg>
+                    </div>
+                    <p>「動画を作りたいけど、何から始めればいいの？」そんなお悩みも安心してお任せください。企画から撮影、編集まで、経験豊富なプロフェッショナルが全面的にサポート。さらに、補助金申請のお手伝いまで。「あ、こんなことまでやってくれるの！？」と驚かれることも。私たちは、お客様の「やりたい」を「できた！」に変えるお手伝いを、とことんさせていただきます。</p>
                 </div>
             </div>
             
@@ -525,14 +874,13 @@
                         <div class="case-result">
                             <span class="highlight-large">年間施術1000人以上！お客様満足度97.8%を実現</span>
                         </div>
-                        <p>高額コースなし、痛みが少ない、予約が取りやすい、という3つの特徴で、安心して通える脱毛サロンを実現。小学5年生から通えるため、家族みんなで脱毛ケアができます。</p>
+                        <p>高額コースなし、痛みが少ない、予約が取りやすい、という3つの特徴で、安心して通える脱毛サロンを実現。家族みんなで脱毛ケアができます。</p>
                         
                         <ul class="case-points">
-                            <li>🌷 安心の都度払いシステム</li>
-                            <li>🌷 脱毛デビューの方も大歓迎</li>
-                            <li>🌷 小学5年生から通える</li>
                             <li>🔷 年間1000人以上の施術実績</li>
                             <li>🔷 お客様満足度97.8%</li>
+                            <li>🌷 安心の都度払いシステム</li>
+                            <li>🌷 脱毛デビューの方も大歓迎</li>
                         </ul>
                     </div>
                     
@@ -615,17 +963,17 @@
                 </div>
             </div>
 
-            <!-- CASE 05 - ロイヤルアカデミー神吉校（元のCASE 3） -->
+            <!-- CASE 05 - ロイヤルアカデミー神吉校 -->
             <div class="case-study-item">
                 <div class="case-number">CASE 05</div>
                 <div class="case-content">
                     <div class="case-info">
                         <h3>ロイヤルアカデミー神吉校</h3>
                         <div class="case-subtitle">
-                            塾長のタカタ先生が『楽しく１分でわかる勉強法』を発信中！
+                            <span class="highlight-large">塾長のカズユキ先生が『楽しく１分でわかる勉強法』を発信中！</span>
                         </div>
                         <div class="case-result">
-                            <span class="highlight-large">3ヶ月で110位→46位、5ヶ月で65位→17位の実績</span>
+                            <span class="highlight">個別指導×通い放題で、できるまで徹底的に教えます</span>
                         </div>
                         <p>このチャンネルでは、半年で偏差値10上げるために必要な『考え方』や『やるべきこと』を配信しています！「そういうことか！」と楽しくなれる塾として、個別指導×通い放題で、できるまで徹底的に教えます。</p>
                         
