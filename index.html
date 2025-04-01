@@ -366,28 +366,31 @@
             overflow: hidden;
             transition: transform 0.3s ease;
             margin-bottom: 0;
+            display: flex;
+            flex-direction: column;
         }
 
         .post-header {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 1.4rem;
+            padding: 1.2rem;
             border-bottom: 1px solid #eee;
         }
 
         .profile {
             display: flex;
             align-items: center;
-            gap: 1.4rem;
+            gap: 1rem;
         }
 
         .profile-icon {
-            width: 60px;
-            height: 60px;
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
             overflow: hidden;
             flex-shrink: 0;
+            border: 2px solid #f0f0f0;
         }
 
         .profile-icon img {
@@ -399,13 +402,12 @@
         .profile-name {
             font-weight: 600;
             color: #333;
-            font-size: 0.9rem;
-            margin-right: 0.5rem;
+            font-size: 1rem;
         }
 
         .post-date {
             color: #999;
-            font-size: 0.8rem;
+            font-size: 0.9rem;
             flex-shrink: 0;
         }
 
@@ -413,25 +415,31 @@
             padding: 1.2rem;
             line-height: 1.6;
             word-break: break-word;
+            flex-grow: 1;
         }
 
         .post-content p {
-            margin-bottom: 0.8rem;
+            margin-bottom: 1rem;
             color: #333;
-            font-size: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .post-content p:last-child {
+            margin-bottom: 0;
         }
 
         .post-footer {
             display: flex;
-            gap: 1rem;
-            padding: 1rem;
+            gap: 1.5rem;
+            padding: 1rem 1.2rem;
             border-top: 1px solid #eee;
+            background: #fafafa;
         }
 
         .like, .comment {
             display: flex;
             align-items: center;
-            gap: 0.3rem;
+            gap: 0.5rem;
             color: #666;
             font-size: 0.9rem;
         }
@@ -440,12 +448,431 @@
             .testimonials-instagram {
                 grid-template-columns: 1fr;
                 padding: 1rem;
+                gap: 1.5rem;
+            }
+
+            .instagram-post {
+                margin-bottom: 0;
+            }
+
+            .post-header {
+                padding: 1rem;
+            }
+
+            .profile-icon {
+                width: 45px;
+                height: 45px;
+            }
+
+            .post-content {
+                padding: 1rem;
+            }
+
+            .post-content p {
+                font-size: 0.9rem;
+                margin-bottom: 0.8rem;
+            }
+
+            .post-footer {
+                padding: 0.8rem 1rem;
             }
         }
 
         .testimonials {
-            padding: 4rem 0 0 0;
+            padding: 4rem 0;
             background: #f8f9fa;
+        }
+
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .faq-item {
+            background: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .faq-answer {
+            display: none;
+            margin-top: 10px;
+        }
+
+        .faq-cta {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .cta-lead {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .cta-button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: #0056b3;
+        }
+
+        .cta-benefits {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .cta-benefit-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .line-cta {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .line-cta .cta-button {
+            background-color: #f8f9fa;
+            color: #007bff;
+            border: 2px solid #007bff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .line-cta .cta-button:hover {
+            background-color: #e9f5ff;
+        }
+
+        .sticky-cta {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        .sticky-cta .cta-button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: background-color 0.3s ease;
+        }
+
+        .sticky-cta .cta-button:hover {
+            background-color: #0056b3;
+        }
+
+        .footer {
+            background-color: #333;
+            color: #fff;
+            padding: 40px 0;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+        }
+
+        .footer-logo {
+            flex: 1;
+            margin-bottom: 20px;
+        }
+
+        .footer-logo h3 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .footer-logo p {
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .footer-social {
+            flex: 1;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+
+        .footer-social h4 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-icon {
+            font-size: 1.5rem;
+            color: #fff;
+            transition: color 0.3s ease;
+        }
+
+        .social-icon:hover {
+            color: #007bff;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.9rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 10px;
+        }
+
+        .footer-links a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #007bff;
+        }
+
+        /* スマートフォン対応のスタイル */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2rem;
+                line-height: 1.4;
+                margin-bottom: 1rem;
+                text-align: center;
+                padding: 0 1rem;
+            }
+
+            .hero-content h1 .highlight {
+                display: block;
+                margin-top: 0.5rem;
+            }
+
+            .hero-content h2 {
+                font-size: 1.2rem;
+                line-height: 1.6;
+                margin-bottom: 1.5rem;
+                text-align: center;
+                padding: 0 1rem;
+            }
+
+            .hero-description {
+                font-size: 1rem;
+                line-height: 1.6;
+                margin-bottom: 2rem;
+                text-align: center;
+                padding: 0 1rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+                line-height: 1.4;
+                margin-bottom: 2rem;
+            }
+
+            .benefit-item h3 {
+                font-size: 1.2rem;
+                line-height: 1.4;
+                margin-bottom: 1rem;
+            }
+
+            .benefit-item p {
+                font-size: 0.95rem;
+                line-height: 1.6;
+            }
+
+            .case-study-item {
+                padding: 1.5rem;
+            }
+
+            .case-info h3 {
+                font-size: 1.3rem;
+                line-height: 1.4;
+                margin-bottom: 0.8rem;
+            }
+
+            .case-subtitle {
+                font-size: 1rem;
+                line-height: 1.5;
+                margin-bottom: 0.8rem;
+            }
+
+            .case-result {
+                font-size: 1.1rem;
+                line-height: 1.5;
+                margin-bottom: 1rem;
+            }
+
+            .case-info p {
+                font-size: 0.95rem;
+                line-height: 1.6;
+                margin-bottom: 1rem;
+            }
+
+            .case-points {
+                margin: 1rem 0;
+            }
+
+            .case-points li {
+                font-size: 0.95rem;
+                line-height: 1.5;
+                margin-bottom: 0.5rem;
+            }
+
+            .service-item h3 {
+                font-size: 1.2rem;
+                line-height: 1.4;
+                margin-bottom: 0.8rem;
+            }
+
+            .service-item p {
+                font-size: 0.95rem;
+                line-height: 1.6;
+            }
+
+            .process-step h4 {
+                font-size: 1.1rem;
+                line-height: 1.4;
+                margin-bottom: 0.5rem;
+            }
+
+            .process-step p {
+                font-size: 0.95rem;
+                line-height: 1.6;
+            }
+
+            .profile-info h3 {
+                font-size: 1.5rem;
+                line-height: 1.4;
+                margin-bottom: 0.5rem;
+            }
+
+            .profile-title {
+                font-size: 1.1rem;
+                line-height: 1.5;
+                margin-bottom: 1rem;
+            }
+
+            .profile-description {
+                font-size: 0.95rem;
+                line-height: 1.6;
+                margin-bottom: 1.5rem;
+            }
+
+            .achievement-list li {
+                font-size: 0.95rem;
+                line-height: 1.5;
+                margin-bottom: 0.5rem;
+            }
+
+            .community-info h5 {
+                font-size: 1.1rem;
+                line-height: 1.4;
+                margin-bottom: 0.5rem;
+            }
+
+            .community-info p {
+                font-size: 0.95rem;
+                line-height: 1.6;
+            }
+
+            .faq-question h3 {
+                font-size: 1.1rem;
+                line-height: 1.4;
+            }
+
+            .faq-answer p {
+                font-size: 0.95rem;
+                line-height: 1.6;
+            }
+
+            .cta-description {
+                font-size: 1rem;
+                line-height: 1.6;
+                margin-bottom: 1.5rem;
+            }
+
+            .cta-benefit-item p {
+                font-size: 0.95rem;
+                line-height: 1.5;
+            }
+
+            .footer-logo h3 {
+                font-size: 1.5rem;
+                line-height: 1.4;
+                margin-bottom: 0.8rem;
+            }
+
+            .footer-logo p {
+                font-size: 0.95rem;
+                line-height: 1.6;
+            }
+
+            .footer-social h4 {
+                font-size: 1.2rem;
+                line-height: 1.4;
+                margin-bottom: 0.8rem;
+            }
+
+            .footer-bottom p {
+                font-size: 0.9rem;
+                line-height: 1.5;
+            }
+
+            .footer-links a {
+                font-size: 0.9rem;
+                line-height: 1.5;
+            }
+        }
+
+        .highlight-large {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #007bff;
+            line-height: 1.4;
+        }
+
+        @media (max-width: 768px) {
+            .highlight-large {
+                font-size: 1.4rem;
+                line-height: 1.3;
+                color: #007bff;
+            }
         }
     </style>
 </head>
@@ -470,7 +897,7 @@
                     <script src="https://player.vimeo.com/api/player.js"></script>
                 </div>
                 
-                <p class="hero-description">月間10社以上が選ぶ動画制作サービス<br>あなたのビジネスを成長させる映像制作のプロフェッショナル</p>
+                <p class="hero-description">月間10社以上が選ぶ動画制作サービス<br>あなたのビジネスを成長させる<br>映像制作のプロフェッショナル</p>
                 
                 <a href="#contact" class="cta-button">無料相談を予約する <i class="fas fa-arrow-right"></i></a>
             </div>
@@ -480,7 +907,7 @@
     <!-- 動画制作でビジネスが変わる6つの理由 -->
     <section class="benefits">
         <div class="container">
-            <h2 class="section-title">動画制作で<span class="highlight">ビジネスが変わる</span>6つの理由</h2>
+            <h2 class="section-title">動画制作で<br><span class="highlight">ビジネスが変わる</span><br>6つの理由</h2>
             
             <div class="benefits-grid">
                 <div class="benefit-item">
@@ -545,10 +972,10 @@
                                 </path>
                             </g>
                         </svg>
-                    </div>
+                        </div>
                     <p>「うちのサービスの良さ、もっとうまく伝えられないかな...」そんなお悩み、私たちが解決します。動画なら、お客様の笑顔やスタッフの熱意、サービスの雰囲気まで、ありのままに伝えることができるんです。実際に、動画を導入されたお客様からは「HPを見た人が、もう私たちのことを知ってるみたいに来てくれるようになった」という声をたくさんいただいています。</p>
                 </div>
-
+                
                 <div class="benefit-item">
                     <div class="benefit-number">02</div>
                     <h3>ブランド認知度の向上</h3>
@@ -617,10 +1044,10 @@
                                 <path d="M-8,-8 L8,8 M-8,8 L8,-8" stroke="white" stroke-width="2"/>
                             </g>
                         </svg>
-                    </div>
+                        </div>
                     <p>「動画を見て、ここの雰囲気いいな、って思ったんです」。こんな風に言ってくださるお客様が増えています。なぜでしょう？それは、動画には不思議な魅力があるから。スタッフの何気ない笑顔、丁寧な作業の様子、お店の温かい雰囲気...。文字や写真では伝えきれない、あなたのお店やサービスの"らしさ"を、動画なら自然な形で届けられるんです。</p>
                 </div>
-
+                
                 <div class="benefit-item">
                     <div class="benefit-number">03</div>
                     <h3>コンバージョン率の改善</h3>
@@ -683,10 +1110,10 @@
                                 </g>
                             </g>
                         </svg>
-                    </div>
+                        </div>
                     <p>「実際どんな感じなんだろう...」そんなお客様の不安な気持ち、よく分かります。だからこそ、私たちは動画で"実際の体験"をお見せすることを大切にしています。例えば、実際のお客様の笑顔や感想、商品の使い方、サービスを受けている様子など。これを見ることで、「あ、こんな感じなんだ！」と安心していただけるんです。その安心感が、お客様の決断を後押しします。</p>
                 </div>
-
+                
                 <div class="benefit-item">
                     <div class="benefit-number">04</div>
                     <h3>SNSでの拡散力</h3>
@@ -764,10 +1191,10 @@
                                 </path>
                             </g>
                         </svg>
-                    </div>
+                        </div>
                     <p>「この動画、すごくいい！シェアしたい！」そんな声をたくさんいただいています。特にInstagramやTikTokでは、魅力的な動画は自然とシェアされやすい傾向にあります。お客様自身が「これ、いいな」と思える動画は、必然的に拡散されていくんです。私たちは、そんな"シェアしたくなる動画"作りのプロフェッショナル。あなたのサービスの魅力を、多くの人に広めるお手伝いをさせていただきます。</p>
                 </div>
-
+                
                 <div class="benefit-item">
                     <div class="benefit-number">05</div>
                     <h3>長期的な資産価値</h3>
@@ -837,9 +1264,9 @@
                                 <text x="0" y="8" fill="white" font-size="24" text-anchor="middle" font-weight="bold">¥</text>
                             </g>
                         </svg>
-                    </div>
+                        </div>
                     <p>動画は、一度作れば長く使える優れものです。例えば、ホームページのファーストビューで会社の雰囲気を伝えたり、商品説明の補助として使ったり、採用活動で会社の魅力を伝えたり...。用途に合わせて、様々な場面で活用できます。つまり、動画は"使い捨て"の広告ではなく、長期的に価値を生み出す"資産"なんです。</p>
-                </div>
+                    </div>
 
                 <div class="benefit-item">
                     <div class="benefit-number">06</div>
@@ -927,19 +1354,19 @@
         <div class="container">
             <h2 class="section-title">制作実績と<span class="highlight">成功事例</span></h2>
             
-            <!-- CASE 01 - エミルカ EMILUCA（変更なし） -->
+            <!-- CASE 01 - エミルカ EMILUCA -->
             <div class="case-study-item">
                 <div class="case-number">CASE 01</div>
                 <div class="case-content">
                     <div class="case-info">
                         <h3>エミルカ EMILUCA</h3>
                         <div class="case-subtitle">
-                            ハーブピーリング専門店🌿【新宿/自由が丘/船橋/名古屋/神戸/岡山/福岡/熊本/宮崎/鹿児島】
+                            ハーブピーリング専門店🌿<br>【新宿/自由が丘/船橋/名古屋/神戸/岡山/福岡/熊本/宮崎/鹿児島】
                         </div>
                         <div class="case-result">
-                            <span class="highlight-large">お肌の悩みを解決するハーブピーリング専門店</span>
+                            <span class="highlight-large">お肌の悩みを<br>解決する<br>ハーブピーリング専門店</span>
                         </div>
-                        <p>毛穴・ニキビ・シミが気になる方へ向けた専門的なケアを提供。24時間LINEでの予約受付に対応し、初回体験価格9,600円でサービスを体験いただけます。</p>
+                        <p>毛穴・ニキビ・シミが気になる方へ向けた<br>専門的なケアを提供。<br>24時間LINEでの予約受付に対応し、<br>初回体験価格9,600円でサービスを体験いただけます。</p>
                         
                         <ul class="case-points">
                             <li>フォロワー様特典：来店毎に2種類の美容液をプレゼント</li>
@@ -960,20 +1387,20 @@
                     </div>
                 </div>
             </div>
-
-            <!-- CASE 02 - 日本一安らげる脱毛サロンパルク（変更なし） -->
+            
+            <!-- CASE 02 - 日本一安らげる脱毛サロンパルク -->
             <div class="case-study-item">
                 <div class="case-number">CASE 02</div>
                 <div class="case-content">
                     <div class="case-info">
                         <h3>日本一安らげる脱毛サロンパルク</h3>
                         <div class="case-subtitle">
-                            岡山県勝田郡で家族で通える脱毛サロン✨
+                            岡山県勝田郡で<br>家族で通える脱毛サロン✨
                         </div>
                         <div class="case-result">
-                            <span class="highlight-large">年間施術1000人以上！お客様満足度97.8%を実現</span>
+                            <span class="highlight-large">年間施術1000人以上！<br>お客様満足度<br>97.8%を実現</span>
                         </div>
-                        <p>高額コースなし、痛みが少ない、予約が取りやすい、という3つの特徴で、安心して通える脱毛サロンを実現。家族みんなで脱毛ケアができます。</p>
+                        <p>高額コースなし、痛みが少ない、<br>予約が取りやすい、という3つの特徴で、<br>安心して通える脱毛サロンを実現。<br>家族みんなで脱毛ケアができます。</p>
                         
                         <ul class="case-points">
                             <li>🔷 年間1000人以上の施術実績</li>
@@ -993,20 +1420,20 @@
                     </div>
                 </div>
             </div>
-
-            <!-- CASE 03 - 福岡美容師ぞの（元のCASE 3） -->
+            
+            <!-- CASE 03 - 福岡美容師ぞの -->
             <div class="case-study-item">
                 <div class="case-number">CASE 03</div>
                 <div class="case-content">
                     <div class="case-info">
                         <h3>福岡美容師ぞの</h3>
                         <div class="case-subtitle">
-                            クセ毛の男をパーマで変えるメンズパーマ専門家
+                            クセ毛の男をパーマで変える<br>メンズパーマ専門家
                         </div>
                         <div class="case-result">
-                            <span class="highlight-large">口コミ300件突破！髪質の悩みを解決する大人男子の完全個室サロン</span>
+                            <span class="highlight-large">口コミ300件突破！<br>髪質の悩みを解決する<br>大人男子の完全個室サロン</span>
                         </div>
-                        <p>くせ毛の全ての悩みはパーマで上書きできる！30代の薄毛とM字悩みもカットパーマで解消します。リールで実体験ベースのお洒落情報を発信中。さらに、お客様から聞いた福岡の美味しいお店情報も配信しています。</p>
+                        <p>くせ毛の全ての悩みはパーマで上書きできる！<br>30代の薄毛とM字悩みも<br>カットパーマで解消します。<br>リールで実体験ベースのお洒落情報を発信中。<br>さらに、お客様から聞いた福岡の<br>美味しいお店情報も配信しています。</p>
                         
                         <ul class="case-points">
                             <li>メンズパーマ専門家として口コミ300件の実績</li>
@@ -1023,11 +1450,11 @@
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                             allowfullscreen>
                         </iframe>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- CASE 04 - 石原@不動産投資・経営サポート（元のCASE 5） -->
+            <!-- CASE 04 - 石原@不動産投資・経営サポート -->
             <div class="case-study-item">
                 <div class="case-number">CASE 04</div>
                 <div class="case-content">
@@ -1037,17 +1464,17 @@
                             🔰不動産投資・経営をサポート🔰
                         </div>
                         <div class="case-result">
-                            <span class="highlight-large">2010年からサラリーマン大家として7棟、合計2.6億の不動産投資を経験</span>
+                            <span class="highlight-large">2010年からサラリーマン大家として<br>7棟、合計2.6億の<br>不動産投資を経験</span>
                         </div>
-                        <p>不動産投資の経験と知識を活かし、初心者の方から経験者まで、それぞれの状況に合わせた最適なサポートを提供しています。</p>
+                        <p>不動産投資の経験と知識を活かし、<br>初心者の方から経験者まで、<br>それぞれの状況に合わせた<br>最適なサポートを提供しています。</p>
                         
                         <ul class="case-points">
                             <li>🏠 7棟の不動産投資実績</li>
                             <li>💰 合計2.6億円の投資経験</li>
                             <li>以下のような方をサポート：</li>
-                            <li>　・何から始めたらいいか分からない方</li>
-                            <li>　・気軽に相談できる人が欲しい方</li>
-                            <li>　・投資後の運営もサポートして欲しい方</li>
+                            <li>・何から始めたらいいか分からない方</li>
+                            <li>・気軽に相談できる人が欲しい方</li>
+                            <li>・投資後の運営もサポートして欲しい方</li>
                         </ul>
                     </div>
                     
@@ -1069,12 +1496,12 @@
                     <div class="case-info">
                         <h3>ロイヤルアカデミー神吉校</h3>
                         <div class="case-subtitle">
-                            <span class="highlight-large">塾長のカズユキ先生が『楽しく１分でわかる勉強法』を発信中！</span>
+                            <span class="highlight-large">塾長のカズユキ先生が<br>『楽しく１分でわかる<br>勉強法』を発信中！</span>
                         </div>
                         <div class="case-result">
-                            <span class="highlight">個別指導×通い放題で、できるまで徹底的に教えます</span>
+                            <span class="highlight">個別指導×通い放題で、<br>できるまで徹底的に教えます</span>
                         </div>
-                        <p>このチャンネルでは、半年で偏差値10上げるために必要な『考え方』や『やるべきこと』を配信しています！「そういうことか！」と楽しくなれる塾として、個別指導×通い放題で、できるまで徹底的に教えます。</p>
+                        <p>このチャンネルでは、<br>半年で偏差値10上げるために必要な<br>『考え方』や『やるべきこと』を配信しています！<br>「そういうことか！」と楽しくなれる塾として、<br>個別指導×通い放題で、<br>できるまで徹底的に教えます。</p>
                         
                         <ul class="case-points">
                             <li>兵庫県加古川市の学習塾</li>
@@ -1231,41 +1658,40 @@
             <h2 class="section-title">お客様の<span class="highlight">声</span></h2>
             
             <div class="testimonials-instagram">
-                <!-- 投稿1（元の投稿3） -->
+                <!-- 投稿1 -->
                 <div class="instagram-post">
                     <div class="post-header">
                         <div class="profile">
                             <div class="profile-icon">
-                                <img src="./images/5.png" alt="お客様3">
-                            </div>
-                            <div class="profile-name">お客様の声 #1</div>
+                                <img src="./images/5.png" alt="お客様1">
                         </div>
+                            <div class="profile-name">お客様の声 #1</div>
+                    </div>
                         <div class="post-date">2024.02</div>
-                    </div>
+                </div>
                     <div class="post-content">
-                        <p>吉田さん、本日はありがとうございました‼️</p>
-                        <p>初めての動画撮影だったのですが吉田さんの人柄の良さで、特に不安なく当日を迎えられました🥲</p>
-                        <p>撮影も進めてからお写真まで、当日の注意点や内容のトピックパターンなども事前に予め教えてくださることが出来味のでスムーズに最後まで撮影できました📸</p>
-                        <p>超スピ返信でサポートもしていただき本当にありがとうございました‼️</p>
-                        <p>当日自宅玄関<br>撮影前から緊張していましたが、吉田さんの場所に向かうとその時点でもうめちゃくちゃリラックスして望めました✨</p>
-                        <p>初めてには自分を出せていたかなじゃないかと思っています</p>
-                        <p>撮影中の指示についてもたくさんのアイデアを提供していただけたので、単調にならず済みました</p>
-                    </div>
+                        <p>吉田さん🌈</p>
+                        <p>動画編集見ました！いつも見てるYouTubeだー！って感激しました！</p>
+                        <p>動画の合間の画像や字幕とか、確認するもの全てが「ほんもののYouTube！」（笑）</p>
+                        <p>さすがやる気を出させる天才吉田！！<br>↑勝手な渾名です😂（笑）</p>
+                        <p>わたしも台本や話し方工夫しようと思いました！</p>
+                        <p>次の撮影と編集もよろしくお願いいたします🙇‍♀️</p>
+                        </div>
                     <div class="post-footer">
                         <span class="like">❤️ 167</span>
                         <span class="comment">💬 18</span>
                     </div>
                 </div>
-
+                
                 <!-- 投稿2 -->
                 <div class="instagram-post">
                     <div class="post-header">
                         <div class="profile">
                             <div class="profile-icon">
                                 <img src="./images/6.png" alt="お客様2">
-                            </div>
-                            <div class="profile-name">お客様の声 #2</div>
                         </div>
+                            <div class="profile-name">お客様の声 #2</div>
+                    </div>
                         <div class="post-date">2024.02</div>
                     </div>
                     <div class="post-content">
@@ -1276,36 +1702,28 @@
                     <div class="post-footer">
                         <span class="like">❤️ 145</span>
                         <span class="comment">💬 15</span>
-                    </div>
                 </div>
-
-                <!-- 投稿3（元の投稿1） -->
+            </div>
+            
+                <!-- 投稿3 -->
                 <div class="instagram-post">
                     <div class="post-header">
                         <div class="profile">
                             <div class="profile-icon">
-                                <img src="./images/4.png" alt="お客様1">
-                            </div>
-                            <div class="profile-name">お客様の声 #3</div>
-                        </div>
-                        <div class="post-date">2024.02</div>
+                                <img src="./images/4.png" alt="お客様3">
                     </div>
+                            <div class="profile-name">お客様の声 #3</div>
+                </div>
+                        <div class="post-date">2024.02</div>
+            </div>
                     <div class="post-content">
-                        <p>吉田さん🌈</p>
-                        <p>動画編集見ました！いつも見てるYouTubeだー！って感激しました！</p>
-                        <p>動画の合間の画像や字幕とか、確認するもの全てが「ほんもののYouTube！」（笑）</p>
-                        <p>さすがやる気を出させる天才吉田！！<br>↑勝手な渾名です😂（笑）</p>
-                        <p>わたしも台本や話し方工夫しようと思いました！</p>
-                        <p>次の撮影と編集もよろしくお願いいたします🙇‍♀️</p>
-                        <p>吉田さん、ツッツムッチャンコ最高でした😊❗❗❗❗❗❗❗❗❗</p>
-                        <p>ダラダラ、しどろもどろなトークだったのにビジバシ言えてる～✨って感動しました🥺</p>
-                        <p>パソコンカタカタしてるところを、ふだん過ぎたかないと思っていましたが全然違和感ないです！<br>もっとオーバーにミスカルにしても全然問題なさそうだなって感じました✨</p>
-                        <p>一方で課題も見えました⚠<br>もっとリズミカルに喋れるように台本をある程度覚えておかないと、と感じました⚠<br>次回はその辺を改めて望みます❗</p>
-                        <p>引き続き、どうぞ宜しくお願いいたします❗<br>動画クリエイトして下さりありがとうございました‼️</p>
-                        <p>いえ！もう最高すぎました🥺✨<br>ありがとうございました！</p>
-                        <p>前回お伝えしてなかったですが、細かなテロップの補正とかもしていただいて、全部見直していただいているんだなとすごく感じます✨</p>
-                        <p>（あなたの満室埋めます→空室埋めますに修正していただいているとか、セリフの言い回しの補正とか）</p>
-                        <p>細部までこだわって下さってるのを感じながら感謝感謝しています✨</p>
+                        <p>吉田さん、本日はありがとうございました！初めての動画撮影だったのですが、吉田さんの人柄の良さで特に不安なく当日を迎えられました🥲</p>
+                        <p>撮影をお願いしてから本番までに、当日の注意点や台本の内容にもアドバイスしていただき、予め備えることができたのでスムーズに撮影に入れました📸 細かく迅速にサポートをしていただき本当にありがとうございました！</p>
+                        <p>いざ当日を迎え撮影前はかなり緊張していましたが、吉田さんの持ち前の明るさと人の良さでとてもリラックスして臨めました✨ 初めてにしては自分を出せていたのではないかと思っています。撮影中の指示についてもたくさんのアイデアを提供していただけたので、単調にならず済みました。</p>
+                        <p>吉田さん、とっても素晴らしかったです😊❗ ダラダラ、しどろもどろなトークだったのに「ビシバシ言えてる～✨」って感動しました🥺 パソコンをカタカタしているところも、ふざけ過ぎたかなと思っていましたが全然違和感ないです！もっとオーバーにコミカルにしても全然問題なさそうだなって感じました✨</p>
+                        <p>一方で課題も見えました⚠ もっとリズミカルに喋れるように台本をある程度覚えておかないと、と感じました。次回はその辺を改めて望みます❗</p>
+                        <p>引き続き、どうぞよろしくお願いいたします❗ 動画作成していただきありがとうございました‼️</p>
+                        <p>編集作業も最高でした🥺✨ 細かなテロップの補正（「あなたの満室埋めます→空室埋めます」への修正など）やセリフの言い回しの補正など、細部までこだわって見直していただいているのがよく伝わってきました。心から感謝しています✨</p>
                     </div>
                     <div class="post-footer">
                         <span class="like">❤️ 468</span>
@@ -1405,7 +1823,7 @@
                 <a href="https://lin.ee/LrUHmHD" target="_blank" class="cta-button large">
                     <i class="fab fa-line"></i> 公式LINEで無料相談する
                 </a>
-            </div>
+                    </div>
         </div>
     </section>
 
