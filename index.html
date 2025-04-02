@@ -899,7 +899,9 @@
                 
                 <p class="hero-description">月間10社以上が選ぶ動画制作サービス<br>あなたのビジネスを成長させる<br>映像制作のプロフェッショナル</p>
                 
-                <a href="#contact" class="cta-button">無料相談を予約する <i class="fas fa-arrow-right"></i></a>
+                <div class="cta-wrapper">
+                    <a href="#contact" class="cta-button">無料相談を予約する <i class="fas fa-arrow-right"></i></a>
+                </div>
             </div>
         </div>
     </header>
@@ -1643,10 +1645,6 @@
                             夢の実現をサポートする場を提供しています。</p>
                         </div>
                     </div>
-                    
-                    <div class="about-cta">
-                        <a href="#contact" class="cta-button">プロの技術を体験する <i class="fas fa-arrow-right"></i></a>
-                    </div>
                 </div>
             </div>
         </div>
@@ -1807,32 +1805,60 @@
             <div class="cta-benefits">
                 <div class="cta-benefit-item">
                     <i class="fas fa-check-circle"></i>
-                    <p>初回相談は完全無料</p>
+                    <span>初回相談は完全無料</span>
                 </div>
                 <div class="cta-benefit-item">
                     <i class="fas fa-check-circle"></i>
-                    <p>具体的な見積もりを提示</p>
+                    <span>具体的な見積もりを提示</span>
                 </div>
                 <div class="cta-benefit-item">
                     <i class="fas fa-check-circle"></i>
-                    <p>あなたの目的に最適な提案</p>
+                    <span>あなたの目的に最適な提案</span>
                 </div>
             </div>
             
             <div class="line-cta">
-                <a href="https://lin.ee/LrUHmHD" target="_blank" class="cta-button large">
+                <a href="https://lin.ee/LrUHmHD" target="_blank" class="cta-button large" style="background-color: #06C755; color: white; font-weight: bold; font-size: 1.2rem; padding: 20px 40px; box-shadow: 0 4px 6px rgba(0,0,0,0.2); border: none;">
                     <i class="fab fa-line"></i> 公式LINEで無料相談する
                 </a>
-                    </div>
+            </div>
         </div>
     </section>
 
-    <!-- スティッキーCTA（モバイル用） -->
+    <!-- 追従するCTA -->
     <div class="sticky-cta">
-        <a href="https://lin.ee/LrUHmHD" target="_blank" class="cta-button">
-            <i class="fab fa-line"></i> 公式LINEで相談する
+        <a href="#contact">
+            <i class="fab fa-line"></i>
+            公式LINEで相談する
         </a>
     </div>
+
+    <script>
+        // 追従するCTAの表示制御
+        document.addEventListener('DOMContentLoaded', function() {
+            const stickyCta = document.querySelector('.sticky-cta');
+            const heroSection = document.querySelector('.hero');
+            const footerSection = document.querySelector('.footer');
+            
+            function toggleStickyCta() {
+                const scrollPosition = window.scrollY;
+                const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
+                const footerTop = footerSection.offsetTop;
+                
+                // ヒーローセクションを過ぎたら表示、フッター手前で非表示
+                if (scrollPosition > heroBottom && scrollPosition < footerTop - 100) {
+                    stickyCta.style.display = 'block';
+                } else {
+                    stickyCta.style.display = 'none';
+                }
+            }
+            
+            // スクロール時に表示制御を実行
+            window.addEventListener('scroll', toggleStickyCta);
+            // 初期表示の制御
+            toggleStickyCta();
+        });
+    </script>
 
     <!-- フッターセクション -->
     <footer class="footer">

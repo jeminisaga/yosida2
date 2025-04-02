@@ -204,34 +204,39 @@ ul {
 
 /* CTA ボタン */
 .cta-button {
-    display: inline-block;
-    background-color: var(--secondary-color);
-    color: white;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #00B900;
+    color: white !important;
     padding: 15px 30px;
-    border-radius: 50px;
-    font-size: 1.1rem;
-    font-weight: 700;
-    text-align: center;
-    transition: var(--transition);
-    box-shadow: 0 4px 12px rgba(255, 102, 0, 0.3);
-    border: none;
-    cursor: pointer;
+    border-radius: 100px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    width: auto;
+    min-width: 280px;
+    box-shadow: 0 4px 12px rgba(0, 185, 0, 0.2);
+    border: 2px solid #00B900;
 }
 
 .cta-button:hover {
-    background-color: #ff8533;
-    color: white;
-    transform: translateY(-3px);
-    box-shadow: 0 6px 15px rgba(255, 102, 0, 0.4);
+    background-color: #009900;
+    color: white !important;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 185, 0, 0.3);
+    border-color: #009900;
+}
+
+.cta-button i {
+    margin-left: 8px;
+    font-size: 1.1em;
 }
 
 .cta-button.large {
     padding: 18px 36px;
     font-size: 1.3rem;
-}
-
-.cta-button i {
-    margin-left: 8px;
 }
 
 /* メリットセクション */
@@ -555,6 +560,7 @@ ul {
 
 .about-cta {
     margin-top: 30px;
+    text-align: center;
 }
 
 /* お客様の声セクション */
@@ -708,10 +714,12 @@ ul {
     animation: gradient 15s ease infinite;
     color: white;
     text-align: center;
+    padding: 80px 0;
 }
 
 .cta .section-title {
     color: white;
+    margin-bottom: 30px;
 }
 
 .cta .section-title:after {
@@ -719,28 +727,85 @@ ul {
 }
 
 .cta-description {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     max-width: 800px;
     margin: 0 auto 40px;
+    line-height: 1.8;
 }
 
 .cta-benefits {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 30px;
-    margin-bottom: 40px;
+    gap: 40px;
+    margin-bottom: 50px;
 }
 
 .cta-benefit-item {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 15px;
+    font-size: 1.2rem;
+    color: white;
 }
 
 .cta-benefit-item i {
-    color: var(--secondary-color);
-    font-size: 1.5rem;
+    color: #ffcc00;
+    font-size: 1.8rem;
+    flex-shrink: 0;
+    width: 24px;
+    text-align: center;
+}
+
+.line-cta {
+    margin-top: 40px;
+}
+
+.line-cta .cta-button {
+    background-color: #06C755 !important;
+    color: white !important;
+    font-weight: bold;
+    font-size: 1.2rem;
+    padding: 20px 40px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    border: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.line-cta .cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+    background-color: #00B347 !important;
+}
+
+.line-cta .cta-button i {
+    font-size: 1.4rem;
+}
+
+@media (max-width: 768px) {
+    .line-cta .cta-button {
+        font-size: 1.1rem;
+        padding: 15px 30px;
+    }
+
+    .cta-benefits {
+        gap: 20px;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0 20px;
+    }
+
+    .cta-benefit-item {
+        font-size: 1.1rem;
+    }
+
+    .cta-benefit-item i {
+        font-size: 1.6rem;
+        width: 20px;
+    }
 }
 
 /* コンタクトフォーム */
@@ -818,98 +883,158 @@ ul {
 /* スティッキーCTA */
 .sticky-cta {
     position: fixed;
-    bottom: -100px;
-    left: 0;
-    width: 100%;
-    background-color: white;
-    padding: 15px;
-    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    transition: var(--transition);
-    z-index: 100;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    display: none;
+    transition: all 0.3s ease;
+    width: auto;
 }
 
-.show-sticky-cta {
-    bottom: 0;
+.sticky-cta a {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background-color: #06C755;
+    color: white !important;
+    text-decoration: none;
+    padding: 18px 36px;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    white-space: nowrap;
 }
 
-.sticky-cta .cta-button {
-    width: 100%;
-    max-width: 400px;
+.sticky-cta a:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+    background-color: #00B347;
+    color: white !important;
+}
+
+.sticky-cta i {
+    font-size: 1.4rem;
+}
+
+@media (max-width: 768px) {
+    .sticky-cta {
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: calc(100% - 40px);
+        max-width: 400px;
+    }
+
+    .sticky-cta a {
+        width: 100%;
+        justify-content: center;
+        padding: 15px 24px;
+        font-size: 1rem;
+    }
+
+    .sticky-cta i {
+        font-size: 1.2rem;
+    }
 }
 
 /* フッター */
 .footer {
     background-color: var(--dark-color);
     color: white;
-    padding: 60px 0 20px;
+    padding: 60px 0 30px;
 }
 
 .footer-content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
     margin-bottom: 40px;
 }
 
+.footer-logo {
+    flex: 1;
+    text-align: left;
+}
+
 .footer-logo h3 {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    line-height: 1.4;
 }
 
-.footer-contact h4,
+.footer-logo p {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.6;
+}
+
+.footer-social {
+    flex: 1;
+    text-align: right;
+}
+
 .footer-social h4 {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     margin-bottom: 20px;
-}
-
-.footer-contact p {
-    margin-bottom: 10px;
-}
-
-.footer-contact i {
-    margin-right: 10px;
-    color: var(--secondary-color);
+    color: white;
+    text-align: right;
 }
 
 .social-icons {
     display: flex;
-    gap: 15px;
+    gap: 20px;
+    justify-content: flex-end;
 }
 
 .social-icon {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 40px;
-    height: 40px;
+    width: 45px;
+    height: 45px;
     background-color: rgba(255, 255, 255, 0.1);
     border-radius: 50%;
-    transition: var(--transition);
+    transition: all 0.3s ease;
 }
 
 .social-icon:hover {
-    background-color: var(--secondary-color);
+    background-color: white;
     transform: translateY(-3px);
 }
 
 .social-icon i {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     color: white;
+    transition: all 0.3s ease;
+}
+
+.social-icon:hover i {
+    color: var(--dark-color);
 }
 
 .footer-bottom {
-    padding-top: 20px;
+    padding-top: 30px;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+}
+
+.footer-bottom p {
+    margin-bottom: 15px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.footer-links {
     display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 20px;
+    justify-content: center;
+    gap: 30px;
 }
 
 .footer-links a {
     color: rgba(255, 255, 255, 0.7);
-    margin-left: 20px;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
 }
 
 .footer-links a:hover {
@@ -987,6 +1112,48 @@ ul {
     .benefit-item {
         padding: 20px;
     }
+    
+    .cta-button {
+        padding: 12px 25px;
+        font-size: 1.1rem;
+        min-width: 240px;
+    }
+
+    .footer {
+        padding: 40px 0 20px;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+    }
+
+    .footer-logo {
+        text-align: center;
+    }
+
+    .footer-social {
+        text-align: center;
+    }
+
+    .footer-social h4 {
+        text-align: center;
+    }
+
+    .social-icons {
+        justify-content: center;
+    }
+
+    .footer-links {
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .about-cta {
+        text-align: center;
+        width: 100%;
+    }
 }
 
 @media (max-width: 576px) {
@@ -1023,31 +1190,57 @@ ul {
     }
     
     .cta-button {
-        padding: 12px 24px;
+        padding: 10px 20px;
         font-size: 1rem;
-    }
-    
-    .cta-button.large {
-        padding: 15px 30px;
-        font-size: 1.1rem;
+        min-width: 200px;
     }
     
     .contact-form {
         padding: 30px 20px;
     }
     
-    .footer-bottom {
-        flex-direction: column;
-        text-align: center;
+    .footer-logo h3 {
+        font-size: 1.4rem;
     }
-    
+
+    .footer-logo p {
+        font-size: 1rem;
+    }
+
+    .footer-social h4 {
+        font-size: 1.2rem;
+    }
+
+    .social-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    .social-icon i {
+        font-size: 1.2rem;
+    }
+
     .footer-links {
-        display: flex;
         flex-direction: column;
-        gap: 10px;
+        gap: 15px;
     }
-    
-    .footer-links a {
-        margin-left: 0;
+}
+
+.cta-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 30px 0;
+}
+
+@media (max-width: 768px) {
+    .cta-wrapper {
+        margin: 25px 0;
+    }
+}
+
+@media (max-width: 576px) {
+    .cta-wrapper {
+        margin: 20px 0;
     }
 }
